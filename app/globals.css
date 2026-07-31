@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette « Rose terracotta » — rose chaud, terre et or ; lumineux et premium */
+  --color-creme: #fbeee9;
+  --color-sable: #f4d3c4;
+  --color-blanc: #fffaf7;
+  --color-encre: #4a2230;
+  --color-chocolat: #6d2f3c;
+  --color-cacao: #843a48;
+  --color-cuivre: #b24a35;
+  --color-dore: #d4820f;
+  --color-ambre: #9c5410;
+  --color-terracotta: #e39a72;
+  --color-rose: #e6a4ac;
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-outfit);
+
+  /* Marquee ralenti */
+  --animate-marquee: marquee 40s linear infinite;
+  /* Halo plus subtil */
+  --animate-halo: halo 7s ease-in-out infinite;
+  --animate-halo-late: halo 7s ease-in-out 3.5s infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes halo {
+    0%, 100% { transform: scale(1);    opacity: 0.4; }
+    50%      { transform: scale(1.04); opacity: 0.75; }
+  }
+}
+
+html { scroll-behavior: smooth; }
+
+::selection { background: var(--color-dore); color: var(--color-chocolat); }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* Micro-interactions boutons */
+.btn-primary {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+.btn-secondary {
+  transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+.btn-secondary:hover {
+  transform: translateY(-1px);
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--color-cuivre);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-sable) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
