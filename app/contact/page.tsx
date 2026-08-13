@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
 import { site, lienWhatsApp } from "@/content/site.config";
 import Reveal from "@/components/Reveal";
+import { formatTelephone } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Contact et réservation",
   description: `Réserver une prestation avec ${site.nom} : WhatsApp, Instagram, TikTok. ${site.zone}.`,
 };
-
-function formatWhatsApp(num: string) {
-  if (num.length === 12 && num.startsWith("221")) {
-    return `+${num.slice(0, 3)} ${num.slice(3, 5)} ${num.slice(5, 8)} ${num.slice(8, 10)} ${num.slice(10)}`;
-  }
-  return `+${num}`;
-}
 
 const etapes = [
   { titre: "Écris sur WhatsApp", texte: "Décris ton envie : maquillage, ongles, coiffure, ou les trois." },
@@ -21,7 +15,7 @@ const etapes = [
 ];
 
 export default function Contact() {
-  const telAffiche = formatWhatsApp(site.whatsapp);
+  const telAffiche = formatTelephone(site.whatsapp);
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-16 md:py-24">
