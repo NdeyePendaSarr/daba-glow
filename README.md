@@ -1,14 +1,30 @@
-# ✨ Daba Glow — Beauté à domicile à Mbour
+# ✨ Daba Glow — Site vitrine professionnel pour une activité de beauté à domicile
 
-Site vitrine de **Daba Glow** (maquillage, manucure, coiffure à domicile),
-construit avec Next.js 16, TypeScript et Tailwind CSS v4.
-Direction artistique éditoriale : chocolat profond, doré, typographie
-Fraunces italique. Réservation via WhatsApp.
+> Site web responsive conçu pour présenter les prestations de **Daba Glow**
+> (maquillage, manucure, coiffure à domicile) à Mbour, valoriser son
+> portfolio et faciliter la prise de contact via WhatsApp.
+> Direction artistique éditoriale : chocolat profond, doré, typographie
+> Fraunces italique.
 
-Ce projet sert aussi de **template réutilisable** pour des sites de
-commerces locaux : tout le contenu est séparé du code.
+Développé avec **Next.js 16, TypeScript et Tailwind CSS v4**.
+
+Le projet a également été conçu comme un **template réutilisable pour les
+commerces et activités locales** : le contenu métier est séparé du code
+afin de permettre une adaptation rapide à un nouveau client.
 
 > **🔗 Démo en ligne : [daba-glow.vercel.app](https://daba-glow.vercel.app/)**
+
+## 🧱 Stack technique
+
+| Technologie | Utilisation |
+|---|---|
+| Next.js 16 | Framework web et architecture de l'application |
+| TypeScript | Typage statique et sécurité du code |
+| Tailwind CSS v4 | Mise en forme et responsive design |
+| Vitest | Tests unitaires et validation du contenu |
+| GitHub Actions | Intégration continue |
+| Vercel | Déploiement |
+| WhatsApp | Canal de prise de contact |
 
 ## 🖼️ Aperçu
 
@@ -38,16 +54,19 @@ npx tsc --noEmit   # vérification des types
 npm run build      # build de production
 ```
 
-## ✏️ Modifier le contenu (sans toucher au code)
+## 🧠 Architecture : séparer le contenu du code
 
-Tout le contenu vit dans le dossier `content/`, séparé du code :
+L'application sépare les données métier de la présentation. Les composants
+et les pages consomment les fichiers du dossier `content/`, ce qui permet de
+réutiliser la même base technique pour différents commerces sans modifier
+la logique de l'application.
 
-| Fichier                   | Contenu                                         |
-| ------------------------- | ----------------------------------------------- |
-| `content/site.config.ts`  | Nom, slogan, **numéro WhatsApp**, réseaux, zone |
-| `content/prestations.ts`  | Prestations, descriptions, prix, durées         |
-| `content/realisations.ts` | Galerie : photos et vidéos TikTok               |
-| `content/atouts.ts`       | Chiffres clés et atouts                         |
+| Fichier                   | Contenu                                           |
+| -------------------------- | -------------------------------------------------- |
+| `content/site.config.ts`  | Nom, slogan, **numéro WhatsApp**, réseaux, zone   |
+| `content/prestations.ts`  | Prestations, descriptions, prix, durées           |
+| `content/realisations.ts` | Galerie : photos et vidéos TikTok                 |
+| `content/atouts.ts`       | Chiffres clés et atouts                           |
 
 ## 🧩 Composants signature
 
@@ -82,4 +101,4 @@ polices dans `app/layout.tsx`. Le code ne change pas.
 
 ---
 
-Conçu et développé par **Ndeye Penda Sarr**.
+Conçu et développé par **Ndeye Penda Sarr 2026**.
