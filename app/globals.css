@@ -8,11 +8,24 @@
   --color-encre: #4a2230;
   --color-chocolat: #6d2f3c;
   --color-cacao: #843a48;
-  --color-cuivre: #b24a35;
-  --color-dore: #d4820f;
+  --color-cuivre: #9e422f;
+  /* Trois dorés de même teinte (35°), chacun conforme WCAG AA à son usage :
+     dore       : décor et bandeau défilant (encre dessus : 4,55:1)
+     dore-clair : texte et boutons dorés sur fond chocolat (4,57:1)
+     dore-fonce : étoiles des avis sur fond blanc (élément non textuel : 3,06:1) */
+  --color-dore: #d6830f;
+  --color-dore-clair: #f09f2c;
+  --color-dore-fonce: #ce7e0f;
   --color-ambre: #9c5410;
-  --color-terracotta: #e39a72;
+  --color-terracotta: #e5a17c;
   --color-rose: #e6a4ac;
+  /* Bouton flottant WhatsApp (icône crème dessus : 3,06:1) */
+  --color-whatsapp: #1d9c73;
+  /* Contour de focus clavier (≥ 3:1 avec le fond qui l'entoure) :
+     fonds clairs  → cuivre (4,57:1 sur sable, 5,65:1 sur creme)
+     fonds sombres → creme  (8,72:1 sur chocolat) */
+  --color-focus: var(--color-cuivre);
+  --color-focus-sombre: var(--color-creme);
 
   --font-display: var(--font-fraunces);
   --font-sans: var(--font-outfit);
@@ -35,7 +48,7 @@
 
 html { scroll-behavior: smooth; }
 
-::selection { background: var(--color-dore); color: var(--color-chocolat); }
+::selection { background: var(--color-dore-clair); color: var(--color-chocolat); }
 
 .reveal {
   opacity: 0;
@@ -59,9 +72,15 @@ html { scroll-behavior: smooth; }
 }
 
 a:focus-visible, button:focus-visible, input:focus-visible {
-  outline: 2px solid var(--color-cuivre);
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
   border-radius: 6px;
+}
+/* Sur un fond sombre (élément marqué data-fond="sombre", ou contenu dans un tel élément),
+   le contour passe en crème. */
+[data-fond="sombre"]:is(a, button, input):focus-visible,
+[data-fond="sombre"] :is(a, button, input):focus-visible {
+  outline-color: var(--color-focus-sombre);
 }
 
 .scrollbar-thin {

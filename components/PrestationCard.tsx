@@ -13,8 +13,8 @@ export default function PrestationCard({ prestation }: { prestation: Prestation 
       <p className="mt-2 flex-1 text-sm leading-relaxed text-encre/70">{prestation.description}</p>
 
       <div className="mt-5 flex items-center justify-between border-t border-encre/10 pt-4">
-        <span className="text-xs uppercase tracking-wider text-encre/50">{prestation.duree}</span>
-        <span className="rounded-full bg-chocolat px-4 py-1.5 text-lg font-semibold text-dore">
+        <span className="text-xs uppercase tracking-wider text-encre/70">{prestation.duree}</span>
+        <span className="rounded-full bg-chocolat px-4 py-1.5 text-lg font-semibold text-dore-clair">
           {prestation.prix}
         </span>
       </div>

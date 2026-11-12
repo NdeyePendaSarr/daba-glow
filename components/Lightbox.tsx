@@ -42,6 +42,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
   return (
     <div
       role="dialog"
+      data-fond="sombre"
       aria-modal="true"
       aria-label={item.titre}
       className="fixed inset-0 z-50 flex items-center justify-center bg-chocolat/95 p-4 backdrop-blur-sm"
@@ -100,7 +101,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
         <p className="mt-4 text-center text-sm text-creme/80">
           {item.titre}
           {items.length > 1 && (
-            <span className="ml-2 text-creme/50">
+            <span className="ml-2 text-creme/70">
               {index + 1} / {items.length}
             </span>
           )}

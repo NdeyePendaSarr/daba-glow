@@ -28,7 +28,7 @@ export default function Contact() {
         {etapes.map((e, i) => (
           <Reveal key={e.titre} delai={i * 120}>
             <div className="h-full rounded-2xl bg-chocolat p-6 text-creme">
-              <span className="font-display text-3xl italic text-dore">{i + 1}</span>
+              <span className="font-display text-3xl italic text-dore-clair">{i + 1}</span>
               <h2 className="mt-3 text-lg font-medium">{e.titre}</h2>
               <p className="mt-2 text-sm leading-relaxed text-creme/70">{e.texte}</p>
             </div>
@@ -48,7 +48,7 @@ export default function Contact() {
           </p>
 
           <div className="mx-auto mt-8 max-w-sm rounded-2xl bg-sable px-6 py-5">
-            <p className="text-xs uppercase tracking-[0.2em] text-encre/50">WhatsApp</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-encre/75">WhatsApp</p>
             <a
               href={lienWhatsApp}
               target="_blank"
@@ -57,7 +57,7 @@ export default function Contact() {
             >
               {telAffiche}
             </a>
-            <p className="mt-2 text-xs leading-relaxed text-encre/60">
+            <p className="mt-2 text-xs leading-relaxed text-encre/75">
               Réponse en général sous 2 h pendant les horaires d&apos;ouverture.
             </p>
           </div>
