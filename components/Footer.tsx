@@ -5,7 +5,7 @@ export default function Footer() {
   const telAffiche = formatTelephone(site.telephone);
 
   return (
-    <footer className="border-t border-cacao bg-chocolat px-5 py-12">
+    <footer className="border-t border-cacao bg-chocolat px-5 py-12" data-fond="sombre">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 text-center md:flex-row md:justify-between md:text-left">
         <div>
           <p className="font-display text-xl italic text-creme">

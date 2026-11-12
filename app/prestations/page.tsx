@@ -52,7 +52,7 @@ export default function Prestations() {
       ))}
 
       <Reveal>
-        <div className="mt-16 rounded-2xl bg-chocolat p-8 text-center text-creme">
+        <div className="mt-16 rounded-2xl bg-chocolat p-8 text-center text-creme" data-fond="sombre">
           <p className="font-display text-2xl italic">Un événement, une envie précise ?</p>
           <a
             href={lienWhatsApp}

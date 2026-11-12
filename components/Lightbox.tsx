@@ -42,6 +42,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
   return (
     <div
       role="dialog"
+      data-fond="sombre"
       aria-modal="true"
       aria-label={item.titre}
       className="fixed inset-0 z-50 flex items-center justify-center bg-chocolat/95 p-4 backdrop-blur-sm"

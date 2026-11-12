@@ -120,7 +120,7 @@ export default function Accueil() {
       </section>
 
       {/* ───────── Chiffres clés ───────── */}
-      <section className="bg-chocolat px-5 py-16 md:py-20">
+      <section className="bg-chocolat px-5 py-16 md:py-20" data-fond="sombre">
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-8 md:grid-cols-4">
           {chiffres.map((c, i) => (
             <Reveal key={c.label} delai={i * 100}>

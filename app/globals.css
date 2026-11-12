@@ -21,6 +21,11 @@
   --color-rose: #e6a4ac;
   /* Bouton flottant WhatsApp (icône crème dessus : 3,06:1) */
   --color-whatsapp: #1d9c73;
+  /* Contour de focus clavier (≥ 3:1 avec le fond qui l'entoure) :
+     fonds clairs  → cuivre (4,57:1 sur sable, 5,65:1 sur creme)
+     fonds sombres → creme  (8,72:1 sur chocolat) */
+  --color-focus: var(--color-cuivre);
+  --color-focus-sombre: var(--color-creme);
 
   --font-display: var(--font-fraunces);
   --font-sans: var(--font-outfit);
@@ -67,9 +72,15 @@ html { scroll-behavior: smooth; }
 }
 
 a:focus-visible, button:focus-visible, input:focus-visible {
-  outline: 2px solid var(--color-cuivre);
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
   border-radius: 6px;
+}
+/* Sur un fond sombre (élément marqué data-fond="sombre", ou contenu dans un tel élément),
+   le contour passe en crème. */
+[data-fond="sombre"]:is(a, button, input):focus-visible,
+[data-fond="sombre"] :is(a, button, input):focus-visible {
+  outline-color: var(--color-focus-sombre);
 }
 
 .scrollbar-thin {

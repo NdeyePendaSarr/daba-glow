@@ -61,6 +61,7 @@ export default function RootLayout({
       <body className="bg-creme font-sans text-encre antialiased">
         <a
           href="#contenu"
+          data-fond="sombre"
           className="absolute -top-20 left-4 z-50 rounded-b-lg bg-cuivre px-4 py-2 font-medium text-creme transition-all focus:top-0"
         >
           Aller au contenu principal

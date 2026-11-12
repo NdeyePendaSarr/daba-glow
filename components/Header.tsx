@@ -21,7 +21,7 @@ export default function Header() {
       <div className="bg-cuivre px-4 py-2 text-center text-xs font-medium tracking-wide text-creme">
         {site.zone}
       </div>
-      <div className="border-b border-cacao bg-chocolat">
+      <div className="border-b border-cacao bg-chocolat" data-fond="sombre">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-4">
         <Link href="/" className="flex items-baseline gap-1" onClick={() => setOuvert(false)}>
           <span className="font-display text-2xl italic text-creme">{site.nomCourt}</span>
