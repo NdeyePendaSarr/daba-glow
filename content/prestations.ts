@@ -1,6 +1,5 @@
 /**
  * 💅 PRESTATIONS & TARIFS
- * ⚠️ Prix et durées d'exemple — À REMPLACER par les vrais tarifs de Daba.
  *
  * PHOTOS : déposer les images dans /public/prestations/ puis renseigner
  * le champ `image` (ex: image: "maquillage-jour.jpg").

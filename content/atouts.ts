@@ -1,6 +1,5 @@
 /**
  * ✨ ATOUTS & CHIFFRES — la confiance en un coup d'œil
- * ⚠️ Chiffres à ajuster avec Daba pour qu'ils soient exacts et honnêtes.
  */
 
 export const chiffres = [
