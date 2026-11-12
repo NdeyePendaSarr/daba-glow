@@ -21,11 +21,11 @@ export default function Header() {
       <div className="bg-cuivre px-4 py-2 text-center text-xs font-medium tracking-wide text-creme">
         {site.zone}
       </div>
-      <div className="border-b border-cacao bg-chocolat/95 backdrop-blur">
+      <div className="border-b border-cacao bg-chocolat">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-4">
         <Link href="/" className="flex items-baseline gap-1" onClick={() => setOuvert(false)}>
           <span className="font-display text-2xl italic text-creme">{site.nomCourt}</span>
-          <span className="text-xs font-medium tracking-[0.35em] text-dore">
+          <span className="text-xs font-medium tracking-[0.35em] text-dore-clair">
             {site.suffixe}
           </span>
         </Link>
@@ -35,8 +35,8 @@ export default function Header() {
             <Link
               key={l.href}
               href={l.href}
-              className={`rounded-md px-1 text-sm tracking-wide transition-colors hover:text-dore ${
-                pathname === l.href ? "text-dore" : "text-creme/80"
+              className={`rounded-md px-1 text-sm tracking-wide transition-colors hover:text-dore-clair ${
+                pathname === l.href ? "text-dore-clair" : "text-creme/80"
               }`}
             >
               {l.label}
@@ -46,7 +46,7 @@ export default function Header() {
             href={lienWhatsApp}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-dore px-5 py-2 text-sm font-medium text-chocolat transition-transform hover:-translate-y-0.5"
+            className="rounded-full bg-dore-clair px-5 py-2 text-sm font-medium text-chocolat transition-transform hover:-translate-y-0.5"
           >
             Réserver
           </a>
@@ -72,7 +72,7 @@ export default function Header() {
               key={l.href}
               href={l.href}
               onClick={() => setOuvert(false)}
-              className={`block py-3 text-lg ${pathname === l.href ? "text-dore" : "text-creme"}`}
+              className={`block py-3 text-lg ${pathname === l.href ? "text-dore-clair" : "text-creme"}`}
             >
               {l.label}
             </Link>
@@ -81,7 +81,7 @@ export default function Header() {
             href={lienWhatsApp}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-block rounded-full bg-dore px-6 py-2.5 font-medium text-chocolat"
+            className="mt-3 inline-block rounded-full bg-dore-clair px-6 py-2.5 font-medium text-chocolat"
           >
             Réserver sur WhatsApp
           </a>

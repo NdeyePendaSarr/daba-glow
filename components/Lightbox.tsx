@@ -100,7 +100,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
         <p className="mt-4 text-center text-sm text-creme/80">
           {item.titre}
           {items.length > 1 && (
-            <span className="ml-2 text-creme/50">
+            <span className="ml-2 text-creme/70">
               {index + 1} / {items.length}
             </span>
           )}

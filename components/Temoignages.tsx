@@ -30,7 +30,7 @@ export default function Temoignages() {
         return (
           <Reveal key={t.auteure} delai={i * 120}>
             <article className="flex h-full flex-col rounded-2xl bg-blanc p-6 shadow-sm">
-              <div className="text-sm tracking-wide text-dore" aria-hidden="true">
+              <div className="text-sm tracking-wide text-dore-fonce" aria-hidden="true">
                 ★★★★★
               </div>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-encre/80">
@@ -45,7 +45,7 @@ export default function Temoignages() {
                 </span>
                 <div>
                   <p className="text-sm font-medium text-encre">{affichage}</p>
-                  <p className="text-xs text-encre/60">{t.contexte}</p>
+                  <p className="text-xs text-encre/70">{t.contexte}</p>
                 </div>
               </div>
             </article>

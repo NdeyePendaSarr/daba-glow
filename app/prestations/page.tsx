@@ -58,7 +58,7 @@ export default function Prestations() {
             href={lienWhatsApp}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-block rounded-full bg-dore px-7 py-3 font-medium text-chocolat"
+            className="mt-5 inline-block rounded-full bg-dore-clair px-7 py-3 font-medium text-chocolat"
           >
             Demander un devis sur WhatsApp
           </a>

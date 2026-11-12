@@ -24,11 +24,11 @@ export default function TikTokEmbed({ id, titre }: { id: string; titre: string }
           onClick={() => setCharge(true)}
           className="flex aspect-[9/16] w-full flex-col items-center justify-center gap-3 bg-encre text-creme transition-colors hover:bg-cacao"
         >
-          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-dore text-2xl text-chocolat">
+          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-dore-clair text-2xl text-chocolat">
             ▶
           </span>
           <span className="px-4 text-center text-sm">{titre}</span>
-          <span className="text-xs text-creme/60">Voir la vidéo TikTok</span>
+          <span className="text-xs text-creme/70">Voir la vidéo TikTok</span>
         </button>
       )}
     </div>

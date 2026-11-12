@@ -13,7 +13,7 @@ export default function Halo({ avecPortrait = false }: { avecPortrait?: boolean 
         className="absolute inset-0 rounded-full opacity-70"
         style={{
           background:
-            "radial-gradient(circle at 40% 35%, rgba(212,130,15,0.22) 0%, rgba(227,154,114,0.12) 35%, transparent 70%)",
+            "radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--color-dore) 22%, transparent) 0%, color-mix(in srgb, var(--color-terracotta) 12%, transparent) 35%, transparent 70%)",
         }}
         aria-hidden="true"
       />
@@ -21,7 +21,7 @@ export default function Halo({ avecPortrait = false }: { avecPortrait?: boolean 
         className="absolute inset-4 rounded-full opacity-40"
         style={{
           background:
-            "radial-gradient(circle at 60% 70%, rgba(178,74,53,0.15) 0%, transparent 55%)",
+            "radial-gradient(circle at 60% 70%, color-mix(in srgb, var(--color-cuivre) 15%, transparent) 0%, transparent 55%)",
         }}
         aria-hidden="true"
       />

@@ -125,7 +125,7 @@ export default function Accueil() {
           {chiffres.map((c, i) => (
             <Reveal key={c.label} delai={i * 100}>
               <div className="text-center">
-                <p className="font-display text-4xl italic text-dore md:text-5xl">
+                <p className="font-display text-4xl italic text-dore-clair md:text-5xl">
                   <AnimatedCounter valeur={c.valeur} />
                 </p>
                 <p className="mt-2 text-sm text-creme/70">{c.label}</p>
