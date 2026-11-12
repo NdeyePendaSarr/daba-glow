@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site, lienWhatsApp } from "@/content/site.config";
+import { schemaBeautySalon } from "@/lib/donnees-structurees";
 import { prestations } from "@/content/prestations";
 import Marquee from "@/components/Marquee";
 import Halo from "@/components/Halo";
@@ -17,11 +18,19 @@ export default function Accueil() {
 
   return (
     <>
+      {/* Données structurées schema.org (sans adresse exacte ni coordonnées GPS) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schemaBeautySalon()).replace(/</g, "\\u003c"),
+        }}
+      />
+
       {/* ───────── Héro ───────── */}
       <section className="mx-auto grid max-w-5xl items-center gap-12 px-5 py-16 md:grid-cols-2 md:gap-16 md:py-28">
         <Reveal>
           <p className="text-xs uppercase tracking-[0.3em] text-cuivre">
-            Beauté à domicile — Mbour
+            Au salon ou à domicile — Mbour
           </p>
           <h1 className="mt-3">
             <span className="block font-display text-6xl italic sm:text-7xl md:text-8xl">
@@ -39,7 +48,7 @@ export default function Accueil() {
           <p className="mt-5 inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-encre/10 bg-blanc px-4 py-2 text-xs font-medium tracking-wide text-encre/80">
             <span>Diplômée</span>
             <span className="text-ambre" aria-hidden="true">·</span>
-            <span>À domicile</span>
+            <span>Salon &amp; domicile</span>
             <span className="text-ambre" aria-hidden="true">·</span>
             <span>Mbour</span>
           </p>

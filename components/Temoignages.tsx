@@ -1,7 +1,7 @@
 import Reveal from "./Reveal";
 import { temoignages } from "@/content/temoignages";
 
-/** "Ndeye Penda Sarr" → { lettre: "N", affichage: "Ndeye Penda S." } */
+/** "Fatou Binta Ndiaye" → { lettre: "F", affichage: "Fatou Binta N." } */
 function formaterAuteure(nomComplet: string) {
   const mots = nomComplet.trim().split(/\s+/);
   const dernier = mots[mots.length - 1];
@@ -12,9 +12,19 @@ function formaterAuteure(nomComplet: string) {
   };
 }
 
+/**
+ * Grille adaptée au nombre réel de témoignages : jamais de colonne vide.
+ * Classes écrites en entier pour que Tailwind les détecte.
+ */
+export function classeGrille(nombre: number): string {
+  if (nombre <= 1) return "mx-auto grid max-w-md gap-6";
+  if (nombre === 2) return "mx-auto grid max-w-3xl gap-6 md:grid-cols-2";
+  return "grid gap-6 md:grid-cols-3";
+}
+
 export default function Temoignages() {
   return (
-    <div className="grid gap-6 md:grid-cols-3">
+    <div className={classeGrille(temoignages.length)}>
       {temoignages.map((t, i) => {
         const { lettre, affichage } = formaterAuteure(t.auteure);
         return (
@@ -24,7 +34,10 @@ export default function Temoignages() {
                 ★★★★★
               </div>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-encre/80">
-                « {t.texte} »
+                {/* espaces insécables : les guillemets ne restent jamais seuls en fin de ligne */}
+                {"«\u00a0"}
+                {t.texte}
+                {"\u00a0»"}
               </p>
               <div className="mt-6 flex items-center gap-3 border-t border-encre/10 pt-4">
                 <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-cuivre font-display text-lg italic text-creme">

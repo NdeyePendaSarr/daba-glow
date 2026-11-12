@@ -1,27 +1,27 @@
 import type { Metadata } from "next";
-import { site, lienWhatsApp } from "@/content/site.config";
+import { site, lienWhatsApp, lienTelephone } from "@/content/site.config";
 import Reveal from "@/components/Reveal";
 import { formatTelephone } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Contact et réservation",
-  description: `Réserver une prestation avec ${site.nom} : WhatsApp, Instagram, TikTok. ${site.zone}.`,
+  description: `Réserver avec ${site.nom} par WhatsApp ou par téléphone. ${site.zone}.`,
 };
 
 const etapes = [
   { titre: "Écris sur WhatsApp", texte: "Décris ton envie : maquillage, ongles, coiffure, ou les trois." },
-  { titre: "Choisissez le créneau", texte: "Daba te propose une date, un tarif clair, et vous décidez du lieu : chez toi ou chez elle." },
-  { titre: "Le jour J, tu brilles", texte: "Daba se déplace avec tout son matériel, ou te reçoit chez elle à Darou Salam. Toi, tu n'as qu'à briller." },
+  { titre: "Choisissez le créneau", texte: "Daba te propose une date, un tarif clair, et vous décidez du lieu : au salon ou chez toi." },
+  { titre: "Le jour J, tu brilles", texte: "Daba te reçoit au salon à Darou Salam, ou se déplace chez toi avec tout son matériel. Toi, tu n'as qu'à briller." },
 ];
 
 export default function Contact() {
-  const telAffiche = formatTelephone(site.whatsapp);
+  const telAffiche = formatTelephone(site.telephone);
 
   return (
     <div className="mx-auto max-w-3xl px-5 py-16 md:py-24">
       <Reveal>
         <p className="text-center text-xs uppercase tracking-[0.3em] text-cuivre">Réservation</p>
-        <h1 className="mt-2 text-center font-display text-5xl italic">On se retrouve chez toi ?</h1>
+        <h1 className="mt-2 text-center font-display text-5xl italic">Au salon ou chez toi ?</h1>
       </Reveal>
 
       <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -38,11 +38,13 @@ export default function Contact() {
 
       <Reveal>
         <div className="mt-14 rounded-2xl border border-encre/20 bg-blanc p-8 text-center md:p-10">
-          <p className="text-xs uppercase tracking-[0.25em] text-cuivre">Zone d&apos;intervention</p>
-          <p className="mt-2 font-display text-2xl italic text-encre">Darou Salam, Mbour</p>
+          <p className="text-xs uppercase tracking-[0.25em] text-cuivre">Où ?</p>
+          <p className="mt-2 font-display text-2xl italic text-encre">
+            Salon à {site.salon.quartier}, {site.salon.ville}
+          </p>
           <p className="mt-2 text-sm text-encre/70">
-            Daba se déplace à domicile dans Mbour et les environs, ou te reçoit chez elle.
-            L&apos;adresse exacte est partagée à la réservation.
+            Daba te reçoit au salon, ou se déplace à domicile sur appel, dans {site.zoneDeplacement}.
+            L&apos;adresse exacte est communiquée à la réservation.
           </p>
 
           <div className="mx-auto mt-8 max-w-sm rounded-2xl bg-sable px-6 py-5">
@@ -69,14 +71,22 @@ export default function Contact() {
             ))}
           </div>
 
-          <a
-            href={lienWhatsApp}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary mt-8 inline-block rounded-full bg-cuivre px-9 py-4 text-lg font-medium text-creme shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
-          >
-            Réserver sur WhatsApp
-          </a>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href={lienWhatsApp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary inline-block rounded-full bg-cuivre px-9 py-4 text-lg font-medium text-creme shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              Réserver sur WhatsApp
+            </a>
+            <a
+              href={lienTelephone}
+              className="btn-secondary inline-block rounded-full border border-cuivre px-9 py-4 text-lg font-medium text-cuivre transition-all hover:bg-cuivre hover:text-creme"
+            >
+              Appeler le {telAffiche}
+            </a>
+          </div>
 
           <div className="mt-6 flex justify-center gap-6 text-sm">
             {site.instagram && (

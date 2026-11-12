@@ -5,7 +5,7 @@
 export const chiffres = [
   { valeur: "2 ans", label: "de formation professionnelle" },
   { valeur: "50+", label: "clientes accompagnées" },
-  { valeur: "100 %", label: "à domicile ou chez elle" },
+  { valeur: "100 %", label: "au salon ou à domicile" },
   { valeur: "7j/7", label: "sur rendez-vous" },
 ];
 
@@ -16,9 +16,9 @@ export const atouts = [
       "Deux ans de formation certifiante : techniques, hygiène et produits maîtrisés. Ton visage est entre des mains sûres.",
   },
   {
-    titre: "Elle vient à toi",
+    titre: "Au salon ou chez toi",
     texte:
-      "Pas besoin de te déplacer : Daba arrive chez toi avec tout son matériel, ou te reçoit chez elle à Darou Salam.",
+      "Viens au salon à Darou Salam, ou fais venir Daba chez toi avec tout son matériel : c'est toi qui choisis.",
   },
   {
     titre: "À l'écoute de ton style",

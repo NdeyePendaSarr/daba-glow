@@ -1,7 +1,7 @@
-# ✨ Daba Glow — Site vitrine professionnel pour une activité de beauté à domicile
+# ✨ Daba Glow — Site vitrine professionnel pour une activité de beauté, au salon et à domicile
 
 > Site web responsive conçu pour présenter les prestations de **Daba Glow**
-> (maquillage, manucure, coiffure à domicile) à Mbour, valoriser son
+> (maquillage, manucure, coiffure, au salon ou à domicile) à Mbour, valoriser son
 > portfolio et faciliter la prise de contact via WhatsApp.
 > Direction artistique éditoriale : chocolat profond, doré, typographie
 > Fraunces italique.
@@ -63,7 +63,7 @@ la logique de l'application.
 
 | Fichier                   | Contenu                                           |
 | -------------------------- | -------------------------------------------------- |
-| `content/site.config.ts`  | Nom, slogan, **numéro WhatsApp**, réseaux, zone   |
+| `content/site.config.ts`  | Nom, slogan, **numéro (WhatsApp + appels)**, salon (quartier seul), réseaux, zone |
 | `content/prestations.ts`  | Prestations, descriptions, prix, durées           |
 | `content/realisations.ts` | Galerie : photos et vidéos TikTok                 |
 | `content/atouts.ts`       | Chiffres clés et atouts                           |
