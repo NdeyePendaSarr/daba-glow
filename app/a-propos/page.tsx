@@ -30,9 +30,9 @@ const parcours = [
   },
   {
     periode: "Aujourd'hui",
-    titre: `${site.nom} vient à toi`,
+    titre: `${site.nom}, au salon ou chez toi`,
     texte:
-      "Diplômée et équipée, Daba se déplace à domicile à Mbour et dans les environs — ou te reçoit chez elle à Darou Salam. Le glow, comme tu préfères.",
+      "Diplômée et équipée, Daba te reçoit dans son salon à Darou Salam, ou se déplace à domicile à Mbour et dans les environs. Le glow, comme tu préfères.",
   },
 ];
 

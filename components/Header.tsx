@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40">
       <div className="bg-cuivre px-4 py-2 text-center text-xs font-medium tracking-wide text-creme">
-        Beauté à domicile — Daba se déplace à Mbour et environs
+        {site.zone}
       </div>
       <div className="border-b border-cacao bg-chocolat/95 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-4">

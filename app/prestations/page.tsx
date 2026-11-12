@@ -7,7 +7,7 @@ import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Prestations & réalisations",
-  description: `Maquillage, manucure et coiffure à domicile à Mbour : prestations, tarifs et réalisations de ${site.nom}.`,
+  description: `Maquillage, manucure et coiffure à ${site.salon.ville}, au salon à ${site.salon.quartier} ou à domicile : prestations, tarifs et réalisations de ${site.nom}.`,
 };
 
 export default function Prestations() {
@@ -17,7 +17,7 @@ export default function Prestations() {
         <p className="text-xs uppercase tracking-[0.3em] text-cuivre">Prestations &amp; réalisations</p>
         <h1 className="mt-2 font-display text-5xl italic">Ce que Daba réalise</h1>
         <p className="mt-4 max-w-lg text-encre/70">
-          Chaque prestation se fait chez toi ou chez {site.nomCourt}, avec du
+          Chaque prestation se fait au salon à {site.salon.quartier} ou chez toi, avec du
           matériel professionnel — accompagnée de vraies réalisations pour que
           tu voies le résultat avant de réserver. Pour les coiffures, le tarif
           dépend du style : demande un devis sur WhatsApp.

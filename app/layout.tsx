@@ -20,12 +20,12 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.nom} — Beauté à domicile à Mbour`,
+    default: `${site.nom} — Beauté au salon ou à domicile à Mbour`,
     template: `%s — ${site.nom}`,
   },
   description: site.description,
   openGraph: {
-    title: `${site.nom} — Beauté à domicile à Mbour`,
+    title: `${site.nom} — Beauté au salon ou à domicile à Mbour`,
     description: site.description,
     url: site.url,
     siteName: site.nom,
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: `${site.nom} — mise en beauté à domicile`,
+        alt: `${site.nom} — mise en beauté au salon à ${site.salon.quartier} ou à domicile, à ${site.salon.ville}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.nom} — Beauté à domicile à Mbour`,
+    title: `${site.nom} — Beauté au salon ou à domicile à Mbour`,
     description: site.description,
     images: ["/og-image.jpg"],
   },
