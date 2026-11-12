@@ -37,9 +37,10 @@ export default function GalerieApercu() {
             onClick={() => setLightboxIndex(i)}
             className="relative aspect-[4/5] w-[70vw] max-w-[280px] flex-shrink-0 snap-center overflow-hidden rounded-2xl"
           >
+            {/* alt vide : le titre est déjà lu via la légende du bouton (évite la double lecture) */}
             <Image
               src={`/realisations/${r.image}`}
-              alt={r.titre}
+              alt=""
               fill
               sizes="70vw"
               className="object-cover"
@@ -62,16 +63,17 @@ export default function GalerieApercu() {
                 i % 2 === 0 ? "md:translate-y-4" : ""
               }`}
             >
+              {/* alt vide : le titre est déjà lu via la légende du bouton */}
               <Image
                 src={`/realisations/${r.image}`}
-                alt={r.titre}
+                alt=""
                 fill
                 sizes="(min-width: 768px) 22vw, 45vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-chocolat/80 to-transparent p-3 pt-8 text-xs text-creme opacity-0 transition-opacity group-hover:opacity-100">
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-chocolat/80 to-transparent p-3 pt-8 text-xs text-creme opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                 {r.titre}
-              </figcaption>
+              </span>
             </button>
           </Reveal>
         ))}
