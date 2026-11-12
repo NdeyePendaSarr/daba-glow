@@ -11,12 +11,6 @@ export type Temoignage = {
 export const temoignages: Temoignage[] = [
   {
     texte:
-      "Korité, Tabaski, mariages... pour chaque événement où je pars, c'est Daba qui me maquille. Je ne confie mon visage à personne d'autre.",
-    auteure: "Ndeye Penda Sarr",
-    contexte: "cliente fidèle — tous les événements",
-  },
-  {
-    texte:
       "Coiffée et maquillée par Daba pour un mariage : j'étais éclatante du début à la fin de la cérémonie. Un travail soigné, fait avec le sourire.",
     auteure: "Mbathio Diaw",
     contexte: "mariage — coiffure et maquillage",
