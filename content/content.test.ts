@@ -67,11 +67,11 @@ describe("realisations", () => {
 
 describe("configuration du site", () => {
   it("a un numéro WhatsApp sénégalais valide (12 chiffres, préfixe 221)", () => {
-    expect(site.whatsapp).toMatch(/^221\d{9}$/);
+    expect(site.telephone).toMatch(/^221\d{9}$/);
   });
 
   it("construit un lien wa.me avec le message encodé", () => {
-    expect(lienWhatsApp.startsWith(`https://wa.me/${site.whatsapp}?text=`)).toBe(
+    expect(lienWhatsApp.startsWith(`https://wa.me/${site.telephone}?text=`)).toBe(
       true
     );
     expect(lienWhatsApp).not.toContain(" ");

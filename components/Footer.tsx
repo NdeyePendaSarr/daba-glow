@@ -1,15 +1,8 @@
-import { site, lienWhatsApp } from "@/content/site.config";
-
-function formatWhatsApp(num: string) {
-  // 221768850492 → +221 76 885 04 92
-  if (num.length === 12 && num.startsWith("221")) {
-    return `+${num.slice(0, 3)} ${num.slice(3, 5)} ${num.slice(5, 8)} ${num.slice(8, 10)} ${num.slice(10)}`;
-  }
-  return `+${num}`;
-}
+import { site, lienWhatsApp, lienTelephone } from "@/content/site.config";
+import { formatTelephone } from "@/lib/format";
 
 export default function Footer() {
-  const telAffiche = formatWhatsApp(site.whatsapp);
+  const telAffiche = formatTelephone(site.telephone);
 
   return (
     <footer className="border-t border-cacao bg-chocolat px-5 py-12">
@@ -30,6 +23,12 @@ export default function Footer() {
             className="mt-3 inline-block text-sm font-medium text-dore transition-colors hover:text-creme"
           >
             WhatsApp {telAffiche}
+          </a>
+          <a
+            href={lienTelephone}
+            className="mt-1 block text-sm font-medium text-creme transition-colors hover:text-dore"
+          >
+            Appeler le {telAffiche}
           </a>
         </div>
         <ul className="flex gap-5" aria-label="Réseaux sociaux">
