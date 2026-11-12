@@ -6,14 +6,19 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppFab from "@/components/WhatsAppFab";
 
+// Polices auto-hébergées par next/font : sous-ensemble latin, affichage immédiat
+// du texte avec une police de secours ajustée (swap), aucun chargement bloquant.
+// Fraunces n'est utilisée qu'en italique : le style droit (35 Ko) n'est plus téléchargé.
 const fraunces = Fraunces({
   subsets: ["latin"],
-  style: ["italic", "normal"],
+  style: ["italic"],
+  display: "swap",
   variable: "--font-fraunces",
 });
 
 const outfit = Outfit({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-outfit",
 });
 
