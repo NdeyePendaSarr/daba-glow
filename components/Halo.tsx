@@ -37,9 +37,11 @@ export default function Halo({ avecPortrait = false }: { avecPortrait?: boolean 
               src="/portrait.jpg"
               alt=""
               fill
-              sizes="(min-width: 1024px) 320px, (min-width: 768px) 272px, 256px"
+              // taille réellement affichée : 160 px (mobile), 176 px (tablette), 224 px (≥ 1024 px)
+              sizes="(min-width: 1024px) 224px, (min-width: 768px) 176px, 160px"
               className="object-cover"
-              priority
+              preload
+              fetchPriority="high"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center">

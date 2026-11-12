@@ -31,7 +31,7 @@ export default function PolaroidCard({
             src={`/realisations/${realisation.image}`}
             alt={realisation.titre}
             fill
-            sizes="(min-width: 768px) 30vw, 45vw"
+            sizes="(min-width: 1024px) 300px, (min-width: 768px) 30vw, 260px"
             className="object-cover"
           />
         ) : (

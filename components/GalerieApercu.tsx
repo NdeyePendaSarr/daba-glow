@@ -42,7 +42,7 @@ export default function GalerieApercu() {
               src={`/realisations/${r.image}`}
               alt=""
               fill
-              sizes="70vw"
+              sizes="(max-width: 400px) 70vw, 280px"
               className="object-cover"
             />
             <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-chocolat/80 to-transparent p-3 pt-8 text-left text-xs text-creme">
@@ -68,7 +68,7 @@ export default function GalerieApercu() {
                 src={`/realisations/${r.image}`}
                 alt=""
                 fill
-                sizes="(min-width: 768px) 22vw, 45vw"
+                sizes="(min-width: 1024px) 240px, 22vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-chocolat/80 to-transparent p-3 pt-8 text-xs text-creme opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
