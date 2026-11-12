@@ -60,11 +60,11 @@ describe("le salon ET le déplacement à domicile sont dits clairement", () => {
     expect(texte).toMatch(/domicile/i);
   });
 
-  it("la page Contact annonce le salon à Darou Salam et garde l'adresse exacte pour la réservation", () => {
+  it("la page Contact annonce le salon à Darou Salam et explique comment s'y rendre", () => {
     const { container } = render(<Contact />);
     const texte = container.textContent ?? "";
     expect(texte).toContain("Salon à Darou Salam, Mbour");
-    expect(texte).toContain("L'adresse exacte est communiquée à la réservation.");
+    expect(texte).toContain("Darou Salam, Mbour. Appelez ou écrivez sur WhatsApp, on vous guide jusqu'au salon.");
   });
 
   it("la meta de Contact ne promet pas Instagram si le compte n'est pas configuré", () => {
