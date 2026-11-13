@@ -14,7 +14,7 @@ export const site = {
   accroche:
     "Le glow n'est pas un filtre. C'est un savoir-faire, au salon ou jusqu'à ta porte.",
   description:
-    "Maquillage, manucure et coiffure au salon à Darou Salam (Mbour), ou chez vous à domicile. Mise en beauté professionnelle par Daba, artiste beauté diplômée.",
+    "Maquillage, manucure et coiffure au salon à Darou Salam (Mbour), ou chez toi à domicile. Mise en beauté professionnelle par Daba, artiste beauté diplômée.",
 
   // Numéro unique (format international sans « + ») : sert aux liens WhatsApp ET aux appels.
   telephone: "221768850492",
@@ -34,7 +34,7 @@ export const site = {
   },
   zoneDeplacement: "Mbour et les environs",
 
-  zone: "Au salon à Darou Salam (Mbour), ou chez vous à domicile",
+  zone: "Au salon à Darou Salam (Mbour), ou chez toi à domicile",
   horaires: "Sur rendez-vous, 7j/7",
   horairesDetail: [
     { jour: "Lundi – Samedi", heures: "9h – 20h" },

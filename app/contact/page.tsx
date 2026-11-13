@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const etapes = [
   { titre: "Écris sur WhatsApp", texte: "Décris ton envie : maquillage, ongles, coiffure, ou les trois." },
-  { titre: "Choisissez le créneau", texte: "Daba te propose une date, un tarif clair, et vous décidez du lieu : au salon ou chez toi." },
+  { titre: "Choisis le créneau", texte: "Daba te propose une date, un tarif clair, et tu décides du lieu : au salon ou chez toi." },
   { titre: "Le jour J, tu brilles", texte: "Daba te reçoit au salon à Darou Salam, ou se déplace chez toi avec tout son matériel. Toi, tu n'as qu'à briller." },
 ];
 
@@ -44,7 +44,7 @@ export default function Contact() {
           </p>
           <p className="mt-2 text-sm text-encre/70">
             Daba te reçoit au salon, ou se déplace à domicile sur appel, dans {site.zoneDeplacement}.{" "}
-            Appelez ou écrivez sur WhatsApp, on vous guide jusqu&apos;au salon.
+            Appelle ou écris sur WhatsApp, on te guide jusqu&apos;au salon.
           </p>
 
           <div className="mx-auto mt-8 max-w-sm rounded-2xl bg-sable px-6 py-5">
