@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/content/site.config";
+
+// Titre d'onglet propre à la 404 (sinon, c'est celui de l'accueil qui s'affiche).
+// Le statut HTTP 404 est géré par Next.js et n'est pas modifié.
+export const metadata: Metadata = {
+  title: { absolute: `Page introuvable · ${site.nom}` },
+};
 
 export default function NotFound() {
   return (
@@ -11,7 +18,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-8 rounded-full bg-cuivre px-7 py-3 font-medium text-creme"
+        className="btn-primary mt-8 rounded-full bg-cuivre px-7 py-3 font-medium text-creme"
       >
         Retour à l&apos;accueil de {site.nom}
       </Link>

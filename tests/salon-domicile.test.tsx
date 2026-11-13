@@ -64,7 +64,10 @@ describe("le salon ET le déplacement à domicile sont dits clairement", () => {
     const { container } = render(<Contact />);
     const texte = container.textContent ?? "";
     expect(texte).toContain("Salon à Darou Salam, Mbour");
-    expect(texte).toContain("Darou Salam, Mbour. Appelez ou écrivez sur WhatsApp, on vous guide jusqu'au salon.");
+    expect(texte).toContain("dans Mbour et les environs. Appelle ou écris sur WhatsApp, on te guide jusqu'au salon.");
+    // Phrase en double supprimée (lot 5) : « environs.Darou Salam, Mbour. » ne doit plus apparaître
+    expect(texte).not.toMatch(/environs\.\S/);
+    expect(texte.match(/Darou Salam, Mbour/g)).toHaveLength(1);
   });
 
   it("la meta de Contact ne promet pas Instagram si le compte n'est pas configuré", () => {

@@ -52,17 +52,28 @@ export default function BarreNavigation() {
           </a>
         </nav>
 
-        <button
-          type="button"
-          onClick={() => setOuvert(!ouvert)}
-          aria-expanded={ouvert}
-          aria-label={ouvert ? "Fermer le menu" : "Ouvrir le menu"}
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
-        >
-          <span className={`h-0.5 w-6 bg-creme transition-transform ${ouvert ? "translate-y-2 rotate-45" : ""}`} />
-          <span className={`h-0.5 w-6 bg-creme transition-opacity ${ouvert ? "opacity-0" : ""}`} />
-          <span className={`h-0.5 w-6 bg-creme transition-transform ${ouvert ? "-translate-y-2 -rotate-45" : ""}`} />
-        </button>
+        {/* Mobile : l'action principale reste visible à côté du burger (cible ≥ 44 px). */}
+        <div className="flex items-center gap-2 md:hidden">
+          <a
+            href={lienWhatsApp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-11 items-center rounded-full bg-dore-clair px-4 text-sm font-medium text-chocolat"
+          >
+            Réserver
+          </a>
+          <button
+            type="button"
+            onClick={() => setOuvert(!ouvert)}
+            aria-expanded={ouvert}
+            aria-label={ouvert ? "Fermer le menu" : "Ouvrir le menu"}
+            className="flex h-11 w-11 flex-col items-center justify-center gap-1.5"
+          >
+            <span className={`h-0.5 w-6 bg-creme transition-transform ${ouvert ? "translate-y-2 rotate-45" : ""}`} />
+            <span className={`h-0.5 w-6 bg-creme transition-opacity ${ouvert ? "opacity-0" : ""}`} />
+            <span className={`h-0.5 w-6 bg-creme transition-transform ${ouvert ? "-translate-y-2 -rotate-45" : ""}`} />
+          </button>
+        </div>
       </div>
 
       {ouvert && (

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const etapes = [
   { titre: "Écris sur WhatsApp", texte: "Décris ton envie : maquillage, ongles, coiffure, ou les trois." },
-  { titre: "Choisissez le créneau", texte: "Daba te propose une date, un tarif clair, et vous décidez du lieu : au salon ou chez toi." },
+  { titre: "Choisis le créneau", texte: "Daba te propose une date, un tarif clair, et tu décides du lieu : au salon ou chez toi." },
   { titre: "Le jour J, tu brilles", texte: "Daba te reçoit au salon à Darou Salam, ou se déplace chez toi avec tout son matériel. Toi, tu n'as qu'à briller." },
 ];
 
@@ -37,14 +37,14 @@ export default function Contact() {
       </div>
 
       <Reveal>
-        <div className="mt-14 rounded-2xl border border-encre/20 bg-blanc p-8 text-center md:p-10">
+        <div className="mt-14 rounded-2xl border border-encre/20 bg-blanc p-6 text-center sm:p-8 md:p-10">
           <p className="text-xs uppercase tracking-[0.25em] text-cuivre">Où ?</p>
           <p className="mt-2 font-display text-2xl italic text-encre">
             Salon à {site.salon.quartier}, {site.salon.ville}
           </p>
           <p className="mt-2 text-sm text-encre/70">
-            Daba te reçoit au salon, ou se déplace à domicile sur appel, dans {site.zoneDeplacement}.
-            {site.salon.quartier}, {site.salon.ville}. Appelez ou écrivez sur WhatsApp, on vous guide jusqu&apos;au salon.
+            Daba te reçoit au salon, ou se déplace à domicile sur appel, dans {site.zoneDeplacement}.{" "}
+            Appelle ou écris sur WhatsApp, on te guide jusqu&apos;au salon.
           </p>
 
           <div className="mx-auto mt-8 max-w-sm rounded-2xl bg-sable px-6 py-5">
@@ -53,7 +53,7 @@ export default function Contact() {
               href={lienWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 block font-display text-2xl italic text-cuivre transition-colors hover:text-ambre"
+              className="mt-1 block whitespace-nowrap font-display text-2xl italic text-cuivre transition-colors hover:text-ambre"
             >
               {telAffiche}
             </a>
@@ -71,20 +71,21 @@ export default function Contact() {
             ))}
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          {/* Mobile : boutons empilés pleine largeur ; à partir de 640 px, côte à côte. */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
             <a
               href={lienWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-block rounded-full bg-cuivre px-9 py-4 text-lg font-medium text-creme shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              className="btn-primary inline-block rounded-full bg-cuivre px-5 py-3.5 text-base font-medium text-creme sm:px-9 sm:py-4 sm:text-lg"
             >
               Réserver sur WhatsApp
             </a>
             <a
               href={lienTelephone}
-              className="btn-secondary inline-block rounded-full border border-cuivre px-9 py-4 text-lg font-medium text-cuivre transition-all hover:bg-cuivre hover:text-creme"
+              className="btn-secondary inline-block rounded-full border border-cuivre px-5 py-3.5 text-base font-medium text-cuivre hover:bg-cuivre hover:text-creme sm:px-9 sm:py-4 sm:text-lg"
             >
-              Appeler le {telAffiche}
+              Appeler le <span className="whitespace-nowrap">{telAffiche}</span>
             </a>
           </div>
 

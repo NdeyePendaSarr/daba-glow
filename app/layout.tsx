@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: `${site.nom} — mise en beauté au salon à ${site.salon.quartier} (${site.salon.ville}), ou chez vous à domicile`,
+        alt: `${site.nom} — mise en beauté au salon à ${site.salon.quartier} (${site.salon.ville}), ou chez toi à domicile`,
       },
     ],
   },

@@ -72,18 +72,40 @@ html { scroll-behavior: smooth; }
   }
 }
 
-/* Micro-interactions boutons */
+/* Transition d'entrée entre les pages (app/template.tsx) : 220 ms, opacité et léger glissement.
+   Opacité de départ partielle (jamais 0) et aucun état masqué dans le HTML : sans JavaScript,
+   ou si l'animation ne se lance pas, le contenu est visible. fill-mode « backwards » : aucun
+   transform ne subsiste après l'animation (les éléments position: fixed restent ancrés à l'écran). */
+@keyframes entree-page {
+  from { opacity: 0.4; transform: translateY(8px); }
+  to   { opacity: 1;   transform: none; }
+}
+.entree-page {
+  animation: entree-page 220ms ease-out backwards;
+}
+
+/* Micro-interactions des boutons : définies ICI uniquement.
+   Ne pas ajouter de classes Tailwind transition-* / hover:translate-* / hover:shadow-*
+   sur ces boutons (les couleurs restent dans le balisage).
+   - .btn-primary  : bouton plein cuivre (action principale)
+   - .btn-secondary : bouton à contour
+   :active donne un retour au toucher sur mobile, où le survol n'existe pas. */
 .btn-primary {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .btn-primary:hover {
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 .btn-secondary {
-  transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease;
 }
 .btn-secondary:hover {
   transform: translateY(-1px);
+}
+.btn-primary:active, .btn-secondary:active {
+  transform: scale(0.98);
 }
 
 a:focus-visible, button:focus-visible, input:focus-visible {
@@ -110,4 +132,5 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     transition-duration: 0.01ms !important;
   }
   .reveal { animation: none; }
+  .entree-page { animation: none; }
 }
