@@ -95,7 +95,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
             fill
             sizes="(min-width: 768px) 60vw, 95vw"
             className="object-contain"
-            priority
+            loading="eager"
           />
         </div>
         <p className="mt-4 text-center text-sm text-creme/80">

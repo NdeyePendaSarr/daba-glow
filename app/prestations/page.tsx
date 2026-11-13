@@ -7,7 +7,7 @@ import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Prestations & réalisations",
-  description: `Maquillage, manucure et coiffure à ${site.salon.ville}, au salon à ${site.salon.quartier} ou à domicile : prestations, tarifs et réalisations de ${site.nom}.`,
+  description: `Maquillage, manucure et coiffure au salon à ${site.salon.quartier} (${site.salon.ville}), ou chez vous à domicile : prestations, tarifs et réalisations de ${site.nom}.`,
 };
 
 export default function Prestations() {

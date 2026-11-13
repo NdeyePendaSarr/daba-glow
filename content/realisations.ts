@@ -16,6 +16,8 @@ export type Realisation = {
   date: string;
   image?: string;
   tiktokId?: string;
+  /** Vignette locale d'une vidéo TikTok (fichier dans /public/realisations/), affichée avant le clic. */
+  vignette?: string;
   teinte?: "terracotta" | "rose" | "dore";
 };
 

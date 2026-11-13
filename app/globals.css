@@ -50,12 +50,27 @@ html { scroll-behavior: smooth; }
 
 ::selection { background: var(--color-dore-clair); color: var(--color-chocolat); }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+/* Apparition au défilement, en CSS uniquement.
+   Le contenu reste TOUJOURS visible (opacité jamais modifiée) : seul un léger
+   glissement est animé. Visible dès l'arrivée du HTML et de la CSS, sans JavaScript.
+   - Navigateurs récents : l'animation suit le défilement (animation-timeline: view()),
+     donc ce qui est déjà à l'écran au chargement (haut de page) ne bouge pas.
+   - Autres navigateurs : léger glissement au chargement, contenu visible dès le départ. */
+@keyframes glissement-entree {
+  from { transform: translateY(24px); }
+  to   { transform: none; }
 }
-.reveal.is-visible { opacity: 1; transform: none; }
+.reveal {
+  animation: glissement-entree 0.7s ease both;
+  animation-delay: var(--delai, 0ms);
+}
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+    animation-delay: 0s;
+  }
+}
 
 /* Micro-interactions boutons */
 .btn-primary {
@@ -94,5 +109,5 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
+  .reveal { animation: none; }
 }

@@ -44,7 +44,7 @@ export default function Contact() {
           </p>
           <p className="mt-2 text-sm text-encre/70">
             Daba te reçoit au salon, ou se déplace à domicile sur appel, dans {site.zoneDeplacement}.
-            L&apos;adresse exacte est communiquée à la réservation.
+            {site.salon.quartier}, {site.salon.ville}. Appelez ou écrivez sur WhatsApp, on vous guide jusqu&apos;au salon.
           </p>
 
           <div className="mx-auto mt-8 max-w-sm rounded-2xl bg-sable px-6 py-5">

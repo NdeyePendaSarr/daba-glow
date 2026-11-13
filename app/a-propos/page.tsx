@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   description: `Le parcours de Daba : de la passion aux clientes fidèles, jusqu'au diplôme professionnel.`,
 };
 
-/* ⚠️ Récit à ajuster avec les mots exacts de Daba (années, diplôme, anecdotes). */
 const parcours = [
   {
     periode: "Les débuts",

@@ -1,8 +1,11 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
-/** Apparition douce au scroll (IntersectionObserver, zéro dépendance). */
+/**
+ * Apparition douce au défilement, en CSS uniquement (aucun JavaScript).
+ *
+ * Le contenu est TOUJOURS visible : l'animation ne joue que sur un léger
+ * glissement (transform), jamais sur l'opacité. Il s'affiche donc dès que le
+ * HTML et la CSS arrivent, même si le JavaScript n'a pas encore tourné.
+ * Voir `.reveal` dans app/globals.css (désactivé par prefers-reduced-motion).
+ */
 export default function Reveal({
   children,
   className = "",
@@ -12,26 +15,8 @@ export default function Reveal({
   className?: string;
   delai?: number;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entree]) => {
-        if (entree.isIntersecting) {
-          el.classList.add("is-visible");
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
   return (
-    <div ref={ref} className={`reveal ${className}`} style={{ transitionDelay: `${delai}ms` }}>
+    <div className={`reveal ${className}`} style={{ "--delai": `${delai}ms` } as React.CSSProperties}>
       {children}
     </div>
   );

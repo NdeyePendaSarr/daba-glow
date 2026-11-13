@@ -1,10 +1,8 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { realisations } from "@/content/realisations";
-import Lightbox, { type LightboxItem } from "./Lightbox";
+import type { LightboxItem } from "./Lightbox";
+import OuvreLightbox from "./OuvreLightbox";
 import Reveal from "./Reveal";
 
 /** Sélection "coup de cœur" pour l'accueil : les plus belles réalisations. */
@@ -15,6 +13,7 @@ const coupsDeCoeur = [
   "mise-en-beaute-soiree.jpg",
 ];
 
+/** Composant serveur : les vignettes sont dans le HTML ; seule l'ouverture de la lightbox est côté client. */
 export default function GalerieApercu() {
   const photos = coupsDeCoeur
     .map((img) => realisations.find((r) => r.image === img))
@@ -24,17 +23,15 @@ export default function GalerieApercu() {
     .filter((r) => r.image)
     .map((r) => ({ src: `/realisations/${r.image}`, titre: r.titre }));
 
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-
   return (
-    <div>
+    <OuvreLightbox items={items}>
       {/* Mobile : swipe horizontal fluide */}
       <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin md:hidden">
         {photos.map((r, i) => (
           <button
             key={r.image}
             type="button"
-            onClick={() => setLightboxIndex(i)}
+            data-lightbox={i}
             className="relative aspect-[4/5] w-[70vw] max-w-[280px] flex-shrink-0 snap-center overflow-hidden rounded-2xl"
           >
             {/* alt vide : le titre est déjà lu via la légende du bouton (évite la double lecture) */}
@@ -42,7 +39,7 @@ export default function GalerieApercu() {
               src={`/realisations/${r.image}`}
               alt=""
               fill
-              sizes="70vw"
+              sizes="(max-width: 400px) 70vw, 280px"
               className="object-cover"
             />
             <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-chocolat/80 to-transparent p-3 pt-8 text-left text-xs text-creme">
@@ -58,7 +55,7 @@ export default function GalerieApercu() {
           <Reveal key={r.image} delai={i * 120}>
             <button
               type="button"
-              onClick={() => setLightboxIndex(i)}
+              data-lightbox={i}
               className={`group relative aspect-[4/5] w-full overflow-hidden rounded-2xl text-left ${
                 i % 2 === 0 ? "md:translate-y-4" : ""
               }`}
@@ -68,7 +65,7 @@ export default function GalerieApercu() {
                 src={`/realisations/${r.image}`}
                 alt=""
                 fill
-                sizes="(min-width: 768px) 22vw, 45vw"
+                sizes="(min-width: 1024px) 240px, 22vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-chocolat/80 to-transparent p-3 pt-8 text-xs text-creme opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
@@ -87,22 +84,6 @@ export default function GalerieApercu() {
           Voir toutes les réalisations
         </Link>
       </div>
-
-      {lightboxIndex !== null && (
-        <Lightbox
-          items={items}
-          index={lightboxIndex}
-          onClose={() => setLightboxIndex(null)}
-          onPrev={() =>
-            setLightboxIndex((i) =>
-              i === null ? 0 : (i - 1 + items.length) % items.length
-            )
-          }
-          onNext={() =>
-            setLightboxIndex((i) => (i === null ? 0 : (i + 1) % items.length))
-          }
-        />
-      )}
-    </div>
+    </OuvreLightbox>
   );
 }
