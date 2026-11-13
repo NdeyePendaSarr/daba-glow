@@ -58,13 +58,13 @@ export default function Accueil() {
               href={lienWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary rounded-full bg-cuivre px-7 py-3 font-medium text-creme shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              className="btn-primary rounded-full bg-cuivre px-7 py-3 font-medium text-creme"
             >
               Réserver sur WhatsApp
             </a>
             <Link
               href="/prestations"
-              className="btn-secondary rounded-full border border-encre/30 px-7 py-3 text-encre transition-all hover:border-cuivre hover:text-cuivre"
+              className="btn-secondary rounded-full border border-encre/30 px-7 py-3 text-encre hover:border-cuivre hover:text-cuivre"
             >
               Découvrir les prestations
             </Link>
@@ -190,7 +190,7 @@ export default function Accueil() {
             href={lienWhatsApp}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary mt-8 inline-block rounded-full bg-cuivre px-9 py-4 text-lg font-medium text-creme shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+            className="btn-primary mt-8 inline-block rounded-full bg-cuivre px-9 py-4 text-lg font-medium text-creme"
           >
             Écrire à {site.nomCourt} sur WhatsApp
           </a>

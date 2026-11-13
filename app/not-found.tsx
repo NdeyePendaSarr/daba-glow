@@ -18,7 +18,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-8 rounded-full bg-cuivre px-7 py-3 font-medium text-creme"
+        className="btn-primary mt-8 rounded-full bg-cuivre px-7 py-3 font-medium text-creme"
       >
         Retour à l&apos;accueil de {site.nom}
       </Link>

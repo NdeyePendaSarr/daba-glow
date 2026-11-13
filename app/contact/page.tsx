@@ -76,13 +76,13 @@ export default function Contact() {
               href={lienWhatsApp}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary inline-block rounded-full bg-cuivre px-9 py-4 text-lg font-medium text-creme shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg"
+              className="btn-primary inline-block rounded-full bg-cuivre px-9 py-4 text-lg font-medium text-creme"
             >
               Réserver sur WhatsApp
             </a>
             <a
               href={lienTelephone}
-              className="btn-secondary inline-block rounded-full border border-cuivre px-9 py-4 text-lg font-medium text-cuivre transition-all hover:bg-cuivre hover:text-creme"
+              className="btn-secondary inline-block rounded-full border border-cuivre px-9 py-4 text-lg font-medium text-cuivre hover:bg-cuivre hover:text-creme"
             >
               Appeler le {telAffiche}
             </a>

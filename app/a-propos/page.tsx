@@ -71,7 +71,7 @@ export default function APropos() {
             href={lienWhatsApp}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-full bg-cuivre px-8 py-3.5 font-medium text-creme transition-transform hover:-translate-y-0.5"
+            className="btn-primary inline-block rounded-full bg-cuivre px-8 py-3.5 font-medium text-creme"
           >
             Faire connaissance sur WhatsApp
           </a>

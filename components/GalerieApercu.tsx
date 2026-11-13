@@ -79,7 +79,7 @@ export default function GalerieApercu() {
       <div className="mt-10 text-center">
         <Link
           href="/prestations"
-          className="btn-secondary inline-block rounded-full border border-cuivre px-7 py-3 font-medium text-cuivre transition-all hover:bg-cuivre hover:text-creme"
+          className="btn-secondary inline-block rounded-full border border-cuivre px-7 py-3 font-medium text-cuivre hover:bg-cuivre hover:text-creme"
         >
           Voir toutes les réalisations
         </Link>
