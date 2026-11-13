@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { site, lienWhatsApp } from "@/content/site.config";
+import { site, lienWhatsApp, lienTelephone } from "@/content/site.config";
+import { formatTelephone } from "@/lib/format";
 import { schemaBeautySalon } from "@/lib/donnees-structurees";
 import { prestations } from "@/content/prestations";
 import Marquee from "@/components/Marquee";
@@ -69,6 +70,15 @@ export default function Accueil() {
               Découvrir les prestations
             </Link>
           </div>
+          <p className="mt-3 text-sm text-encre/75">
+            ou{" "}
+            <a
+              href={lienTelephone}
+              className="inline-flex min-h-11 items-center font-medium text-cuivre underline underline-offset-4 hover:text-ambre"
+            >
+              appeler le&nbsp;<span className="whitespace-nowrap">{formatTelephone(site.telephone)}</span>
+            </a>
+          </p>
         </Reveal>
         <Reveal delai={150}>
           <Halo avecPortrait />

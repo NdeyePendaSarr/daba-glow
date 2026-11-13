@@ -22,13 +22,13 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="mt-3 inline-block text-sm font-medium text-dore-clair transition-colors hover:text-creme"
           >
-            WhatsApp {telAffiche}
+            WhatsApp <span className="whitespace-nowrap">{telAffiche}</span>
           </a>
           <a
             href={lienTelephone}
             className="mt-1 block text-sm font-medium text-creme transition-colors hover:text-dore-clair"
           >
-            Appeler le {telAffiche}
+            Appeler le <span className="whitespace-nowrap">{telAffiche}</span>
           </a>
         </div>
         <ul className="flex gap-5" aria-label="Réseaux sociaux">
