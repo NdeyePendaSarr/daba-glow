@@ -26,23 +26,16 @@ export default function GalerieCategorie({ categorie }: { categorie: Categorie }
 
   return (
     <OuvreLightbox items={items}>
-      {/* Mobile : swipe horizontal */}
-      <div className="mt-8 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:hidden">
+      {/* Une seule liste (rendue une fois dans le HTML) :
+          mobile : défilement horizontal ; desktop (≥ 768 px) : grille de 3 colonnes. */}
+      <div className="mt-8 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 md:snap-none">
         {photos.map((r, i) => (
-          <div key={r.titre} className="w-[70vw] max-w-[280px] flex-shrink-0 snap-center">
-            {r.tiktokId ? (
-              <TikTokEmbed id={r.tiktokId} titre={r.titre} vignette={r.vignette} />
-            ) : (
-              <PolaroidCard realisation={r} index={i} lightboxIndex={indexLightbox(r.image)} />
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* Desktop : grille */}
-      <div className="mt-8 hidden grid-cols-2 gap-5 md:grid md:grid-cols-3 md:gap-8">
-        {photos.map((r, i) => (
-          <Reveal key={r.titre} delai={i * 100}>
+          <Reveal
+            key={r.titre}
+            delai={i * 100}
+            desktopSeulement
+            className="w-[70vw] max-w-[280px] flex-shrink-0 snap-center md:w-auto md:max-w-none"
+          >
             {r.tiktokId ? (
               <TikTokEmbed id={r.tiktokId} titre={r.titre} vignette={r.vignette} />
             ) : (

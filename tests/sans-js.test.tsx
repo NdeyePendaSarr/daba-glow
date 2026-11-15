@@ -28,7 +28,7 @@ describe("contenu visible sans JavaScript (HTML du serveur)", () => {
     const keyframes = css.match(/@keyframes glissement-entree\s*\{[\s\S]*?\n\}/)?.[0] ?? "";
     expect(keyframes).not.toBe("");
     expect(keyframes).not.toMatch(/opacity/);
-    expect(css).toMatch(/@media \(prefers-reduced-motion: reduce\)[\s\S]*\.reveal\s*\{\s*animation:\s*none/);
+    expect(css).toMatch(/@media \(prefers-reduced-motion: reduce\)[\s\S]*\.reveal(, \.reveal-md)?\s*\{\s*animation:\s*none/);
   });
 
   it("Reveal n'est plus un composant client (aucun JavaScript requis pour l'afficher)", () => {
