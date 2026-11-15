@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { site, lienWhatsApp, lienTelephone } from "@/content/site.config";
 import { formatTelephone } from "@/lib/format";
@@ -11,6 +12,8 @@ import GalerieApercu from "@/components/GalerieApercu";
 import Temoignages from "@/components/Temoignages";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { chiffres, atouts } from "@/content/atouts";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default function Accueil() {
   const apercu = prestations.filter((p) =>
@@ -43,6 +46,8 @@ export default function Accueil() {
             <span className="reflet-glow mt-1 block text-xl font-medium tracking-[0.4em] text-ambre sm:text-3xl md:text-4xl md:tracking-[0.5em]">
               {site.suffixe}
             </span>
+            {/* Titre complet pour les moteurs et les lecteurs d'écran, sans changement visuel */}
+            <span className="sr-only"> — maquillage, coiffure et manucure au salon à Darou Salam ou à domicile, Mbour</span>
           </h1>
           <p className="mx-auto mt-2.5 max-w-[300px] text-base leading-[1.55] text-encre/75 md:mx-0 md:mt-6 md:max-w-sm md:text-lg md:leading-relaxed">
             {site.accroche}

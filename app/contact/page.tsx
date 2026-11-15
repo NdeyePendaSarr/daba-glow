@@ -4,6 +4,7 @@ import Reveal from "@/components/Reveal";
 import { formatTelephone } from "@/lib/format";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact et réservation",
   description: `Réserver avec ${site.nom} par WhatsApp ou par téléphone. ${site.zone}.`,
 };
