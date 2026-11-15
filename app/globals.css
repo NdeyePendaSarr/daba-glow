@@ -99,13 +99,14 @@ html { scroll-behavior: smooth; }
   animation: entree-page 220ms ease-out backwards;
 }
 
-/* Signature : reflet doré qui traverse « GLOW » une seule fois (héros de l'accueil).
+/* Signature : reflet doré qui traverse « GLOW » (héros de l'accueil), en boucle :
+   un passage de 1,6 s, puis 4,8 s de pause (cycle de 6,4 s), pour que l'éclat garde son effet.
    CSS uniquement. Le texte prend la couleur d'un dégradé ambre → or pâle → ambre qui glisse ;
-   au repos (avant et après l'animation), il est ambre plein, comme avant.
+   entre deux passages, il est ambre plein, comme avant.
    Éclat adouci (or pâle, jamais blanc) pour rester lisible pendant le passage. */
 @keyframes reflet-glow {
-  from { background-position: 100% 0; }
-  to   { background-position: 0 0; }
+  0%        { background-position: 100% 0; }
+  25%, 100% { background-position: 0 0; }
 }
 .reflet-glow {
   background-image: linear-gradient(105deg, var(--color-ambre) 0%, var(--color-ambre) 40%, #e3a24a 46%, #f6d394 50%, #e3a24a 54%, var(--color-ambre) 60%, var(--color-ambre) 100%);
@@ -114,7 +115,7 @@ html { scroll-behavior: smooth; }
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: reflet-glow 1.6s cubic-bezier(0.45, 0.05, 0.35, 1) 0.5s 1 backwards;
+  animation: reflet-glow 6.4s cubic-bezier(0.45, 0.05, 0.35, 1) 0.5s infinite backwards;
 }
 /* Mode contraste élevé (Windows) : couleur système, sans dégradé. */
 @media (forced-colors: active) {
