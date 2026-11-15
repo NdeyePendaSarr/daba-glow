@@ -4,6 +4,7 @@ import TikTokEmbed from "./TikTokEmbed";
 import type { LightboxItem } from "./Lightbox";
 import OuvreLightbox from "./OuvreLightbox";
 import Reveal from "./Reveal";
+import DefilementPoints from "./DefilementPoints";
 
 /**
  * Galerie des réalisations d'UNE catégorie (maquillage, manucure, coiffure).
@@ -27,14 +28,18 @@ export default function GalerieCategorie({ categorie }: { categorie: Categorie }
   return (
     <OuvreLightbox items={items}>
       {/* Une seule liste (rendue une fois dans le HTML) :
-          mobile : défilement horizontal ; desktop (≥ 768 px) : grille de 3 colonnes. */}
-      <div className="mt-8 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 md:snap-none">
+          mobile : une photo entière par écran (marge autour pour les cartes inclinées), points
+          de repère dessous ; desktop (≥ 768 px) : grille de 3 colonnes. */}
+      <DefilementPoints
+        nombre={photos.length}
+        className="mt-8 flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0 md:snap-none"
+      >
         {photos.map((r, i) => (
           <Reveal
             key={r.titre}
             delai={i * 100}
             desktopSeulement
-            className="w-[70vw] max-w-[280px] flex-shrink-0 snap-center md:w-auto md:max-w-none"
+            className="w-full flex-none snap-center px-[max(2rem,calc(50%-170px))] py-3 md:w-auto md:max-w-none md:p-0"
           >
             {r.tiktokId ? (
               <TikTokEmbed id={r.tiktokId} titre={r.titre} vignette={r.vignette} />
@@ -43,7 +48,7 @@ export default function GalerieCategorie({ categorie }: { categorie: Categorie }
             )}
           </Reveal>
         ))}
-      </div>
+      </DefilementPoints>
     </OuvreLightbox>
   );
 }
