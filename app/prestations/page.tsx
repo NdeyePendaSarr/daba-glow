@@ -6,6 +6,7 @@ import GalerieCategorie from "@/components/GalerieCategorie";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/prestations" },
   title: "Prestations & réalisations",
   description: `Maquillage, manucure et coiffure au salon à ${site.salon.quartier} (${site.salon.ville}), ou chez toi à domicile : prestations, tarifs et réalisations de ${site.nom}.`,
 };

@@ -4,6 +4,7 @@ import Halo from "@/components/Halo";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/a-propos" },
   title: "À propos",
   description: `Le parcours de Daba : de la passion aux clientes fidèles, jusqu'au diplôme professionnel.`,
 };

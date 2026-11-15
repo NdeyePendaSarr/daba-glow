@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 
 export type LightboxItem = {
@@ -18,12 +18,36 @@ type Props = {
 
 export default function Lightbox({ items, index, onClose, onPrev, onNext }: Props) {
   const item = items[index];
+  const dialogue = useRef<HTMLDivElement>(null);
+  const boutonFermer = useRef<HTMLButtonElement>(null);
+
+  // À l'ouverture : focus sur « Fermer » ; à la fermeture : focus rendu à l'élément qui l'avait
+  // (la vignette cliquée), pour ne pas perdre la personne qui navigue au clavier.
+  useEffect(() => {
+    const precedent = document.activeElement as HTMLElement | null;
+    boutonFermer.current?.focus();
+    return () => precedent?.focus?.();
+  }, []);
 
   const onKey = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
       if (e.key === "ArrowLeft") onPrev();
       if (e.key === "ArrowRight") onNext();
+      // Tab et Maj+Tab restent dans la visionneuse (focus piégé tant qu'elle est ouverte)
+      if (e.key === "Tab" && dialogue.current) {
+        const cibles = [...dialogue.current.querySelectorAll<HTMLElement>("button, a[href]")];
+        if (!cibles.length) return;
+        const premier = cibles[0];
+        const dernier = cibles[cibles.length - 1];
+        if (e.shiftKey && document.activeElement === premier) {
+          e.preventDefault();
+          dernier.focus();
+        } else if (!e.shiftKey && document.activeElement === dernier) {
+          e.preventDefault();
+          premier.focus();
+        }
+      }
     },
     [onClose, onPrev, onNext]
   );
@@ -41,6 +65,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
 
   return (
     <div
+      ref={dialogue}
       role="dialog"
       data-fond="sombre"
       aria-modal="true"
@@ -49,6 +74,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
       onClick={onClose}
     >
       <button
+        ref={boutonFermer}
         type="button"
         onClick={onClose}
         aria-label="Fermer"

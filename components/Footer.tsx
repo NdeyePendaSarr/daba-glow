@@ -20,15 +20,20 @@ export default function Footer() {
             href={lienWhatsApp}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3 inline-block text-sm font-medium text-dore-clair transition-colors hover:text-creme"
+            className="mt-1 inline-flex min-h-11 items-center text-sm font-medium text-dore-clair transition-colors hover:text-creme"
           >
-            WhatsApp <span className="whitespace-nowrap">{telAffiche}</span>
+            {/* une seule boîte de texte : un conteneur flex supprimerait l'espace */}
+            <span>
+              WhatsApp <span className="whitespace-nowrap">{telAffiche}</span>
+            </span>
           </a>
           <a
             href={lienTelephone}
-            className="mt-1 block text-sm font-medium text-creme transition-colors hover:text-dore-clair"
+            className="flex min-h-11 items-center justify-center text-sm font-medium text-creme transition-colors hover:text-dore-clair md:justify-start"
           >
-            Appeler le <span className="whitespace-nowrap">{telAffiche}</span>
+            <span>
+              Appeler le <span className="whitespace-nowrap">{telAffiche}</span>
+            </span>
           </a>
         </div>
         <ul className="flex gap-5" aria-label="Réseaux sociaux">
@@ -38,7 +43,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="WhatsApp"
-              className="text-creme/70 transition-colors hover:text-dore-clair"
+              className="inline-flex min-h-11 items-center text-creme/70 transition-colors hover:text-dore-clair"
             >
               WhatsApp
             </a>
@@ -50,7 +55,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="text-creme/70 transition-colors hover:text-dore-clair"
+                className="inline-flex min-h-11 items-center text-creme/70 transition-colors hover:text-dore-clair"
               >
                 Instagram
               </a>
@@ -62,7 +67,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="TikTok"
-              className="text-creme/70 transition-colors hover:text-dore-clair"
+              className="inline-flex min-h-11 items-center text-creme/70 transition-colors hover:text-dore-clair"
             >
               TikTok
             </a>
