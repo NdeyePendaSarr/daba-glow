@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-40">
       <div className="bg-cuivre px-4 py-2 text-center text-xs font-medium tracking-wide text-creme">
-        {site.zone}
+        {site.bandeau}
       </div>
       <BarreNavigation />
     </header>

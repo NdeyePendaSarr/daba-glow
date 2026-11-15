@@ -37,6 +37,8 @@ export const site = {
   zoneDeplacement: "Mbour et les environs",
 
   zone: "Au salon à Darou Salam (Mbour), ou chez toi à domicile",
+  // Bandeau du haut de toutes les pages (choisi le 15/11/2026)
+  bandeau: "Au salon ou chez toi · Réponse rapide sur WhatsApp",
   horaires: "Sur rendez-vous, 7j/7",
   horairesDetail: [
     { jour: "Lundi – Samedi", heures: "9h – 20h" },
