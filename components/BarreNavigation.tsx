@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { site, lienWhatsApp } from "@/content/site.config";
@@ -19,6 +19,19 @@ const liens = [
 export default function BarreNavigation() {
   const [ouvert, setOuvert] = useState(false);
   const pathname = usePathname();
+  const burger = useRef<HTMLButtonElement>(null);
+
+  // Menu mobile ouvert : la touche Échap le ferme et rend le focus au bouton du menu.
+  useEffect(() => {
+    if (!ouvert) return;
+    const surTouche = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setOuvert(false);
+      burger.current?.focus();
+    };
+    window.addEventListener("keydown", surTouche);
+    return () => window.removeEventListener("keydown", surTouche);
+  }, [ouvert]);
 
   return (
     <div className="border-b border-cacao bg-chocolat" data-fond="sombre">
@@ -35,6 +48,7 @@ export default function BarreNavigation() {
             <Link
               key={l.href}
               href={l.href}
+              aria-current={pathname === l.href ? "page" : undefined}
               className={`rounded-md px-1 text-sm tracking-wide transition-colors hover:text-dore-clair ${
                 pathname === l.href ? "text-dore-clair" : "text-creme/80"
               }`}
@@ -63,6 +77,7 @@ export default function BarreNavigation() {
             Réserver
           </a>
           <button
+            ref={burger}
             type="button"
             onClick={() => setOuvert(!ouvert)}
             aria-expanded={ouvert}
@@ -83,6 +98,7 @@ export default function BarreNavigation() {
               key={l.href}
               href={l.href}
               onClick={() => setOuvert(false)}
+              aria-current={pathname === l.href ? "page" : undefined}
               className={`block py-3 text-lg ${pathname === l.href ? "text-dore-clair" : "text-creme"}`}
             >
               {l.label}

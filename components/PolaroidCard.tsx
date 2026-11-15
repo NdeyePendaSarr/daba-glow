@@ -25,13 +25,18 @@ export default function PolaroidCard({
   const teinte = teintes[realisation.teinte ?? "terracotta"];
   const rotation = rotations[index % rotations.length];
 
+  // Dans un bouton : pas de <figcaption> (réservé à <figure>), et image décorative (alt vide)
+  // puisque la légende donne déjà le nom au bouton (évite une double lecture).
+  const estBouton = lightboxIndex !== undefined && Boolean(realisation.image);
+  const Legende = estBouton ? "span" : "figcaption";
+
   const content = (
     <>
       <div className={`relative aspect-[4/5] overflow-hidden ${teinte}`}>
         {realisation.image ? (
           <Image
             src={`/realisations/${realisation.image}`}
-            alt={realisation.titre}
+            alt={estBouton ? "" : realisation.titre}
             fill
             sizes="(min-width: 1024px) 300px, (min-width: 768px) 30vw, 260px"
             className="object-cover"
@@ -44,13 +49,13 @@ export default function PolaroidCard({
           </div>
         )}
       </div>
-      <figcaption className="mt-2 text-center text-xs text-encre">
+      <Legende className="mt-2 block text-center text-xs text-encre">
         {realisation.titre} · {realisation.date}
-      </figcaption>
+      </Legende>
     </>
   );
 
-  if (lightboxIndex !== undefined && realisation.image) {
+  if (estBouton) {
     return (
       <button
         type="button"

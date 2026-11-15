@@ -39,7 +39,9 @@ describe("JavaScript réduit au strict nécessaire", () => {
     const boutons = container.querySelectorAll<HTMLButtonElement>("button[data-lightbox]");
     expect(boutons.length).toBeGreaterThan(0);
     fireEvent.click(boutons[boutons.length - 1]);
-    const titre = boutons[boutons.length - 1].querySelector("img")!.getAttribute("alt")!;
+    // titre lu dans la légende du bouton (l'image y est décorative : alt vide)
+    const legende = [...boutons[boutons.length - 1].querySelectorAll("span")].pop()!;
+    const titre = legende.textContent!.split(" · ")[0].trim();
     expect(screen.getByRole("dialog")).toHaveAccessibleName(titre);
   });
 
