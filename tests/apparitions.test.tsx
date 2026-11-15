@@ -40,7 +40,8 @@ describe("retour au toucher sur les vignettes de la galerie", () => {
   it("les vignettes mobiles (boutons) réagissent au toucher", () => {
     const { container } = render(<GalerieApercu />);
     const boutons = container.querySelectorAll<HTMLButtonElement>("button[data-lightbox]");
-    const mobiles = [...boutons].filter((b) => b.className.includes("snap-center"));
+    // une seule liste depuis le lot 10 : toutes les vignettes sont concernées (mobile et desktop)
+    const mobiles = [...boutons];
     expect(mobiles.length).toBeGreaterThan(0);
     for (const b of mobiles) expect(b.className).toMatch(/active:scale-\[0\.98\]/);
   });

@@ -2,18 +2,13 @@ import type { Metadata } from "next";
 import { site, lienWhatsApp, lienTelephone } from "@/content/site.config";
 import Reveal from "@/components/Reveal";
 import { formatTelephone } from "@/lib/format";
+import { etapes } from "@/content/contact";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
   title: "Contact et réservation",
   description: `Réserver avec ${site.nom} par WhatsApp ou par téléphone. ${site.zone}.`,
 };
-
-const etapes = [
-  { titre: "Écris sur WhatsApp", texte: "Décris ton envie : maquillage, ongles, coiffure, ou les trois." },
-  { titre: "Choisis le créneau", texte: "Daba te propose une date, un tarif clair, et tu décides du lieu : au salon ou chez toi." },
-  { titre: "Le jour J, tu brilles", texte: "Daba te reçoit au salon à Darou Salam, ou se déplace chez toi avec tout son matériel. Toi, tu n'as qu'à briller." },
-];
 
 export default function Contact() {
   const telAffiche = formatTelephone(site.telephone);

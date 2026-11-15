@@ -25,50 +25,28 @@ export default function GalerieApercu() {
 
   return (
     <OuvreLightbox items={items}>
-      {/* Mobile : swipe horizontal fluide */}
-      <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin md:hidden">
+      {/* Une seule liste (rendue une fois dans le HTML) :
+          mobile : défilement horizontal, légende toujours visible ;
+          desktop (≥ 768 px) : grille décalée, légende au survol, apparition au défilement. */}
+      <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-thin md:grid md:grid-cols-4 md:overflow-visible md:pb-0 md:snap-none">
         {photos.map((r, i) => (
-          <button
-            key={r.image}
-            type="button"
-            data-lightbox={i}
-            className="relative aspect-[4/5] w-[70vw] max-w-[280px] flex-shrink-0 snap-center overflow-hidden rounded-2xl transition-transform duration-150 active:scale-[0.98]"
-          >
-            {/* alt vide : le titre est déjà lu via la légende du bouton (évite la double lecture) */}
-            <Image
-              src={`/realisations/${r.image}`}
-              alt=""
-              fill
-              sizes="(max-width: 400px) 70vw, 280px"
-              className="object-cover"
-            />
-            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-chocolat/80 to-transparent p-3 pt-8 text-left text-xs text-creme">
-              {r.titre}
-            </span>
-          </button>
-        ))}
-      </div>
-
-      {/* Desktop : grille décalée */}
-      <div className="hidden grid-cols-2 gap-4 md:grid md:grid-cols-4">
-        {photos.map((r, i) => (
-          <Reveal key={r.image} delai={i * 120}>
+          <Reveal key={r.image} delai={i * 120} desktopSeulement className="flex-shrink-0 snap-center">
             <button
               type="button"
               data-lightbox={i}
-              className={`group relative aspect-[4/5] w-full overflow-hidden rounded-2xl text-left ${
+              className={`group relative block aspect-[4/5] md:inline-block w-[70vw] max-w-[280px] overflow-hidden rounded-2xl text-left transition-transform duration-150 active:scale-[0.98] md:w-full md:max-w-none ${
                 i % 2 === 0 ? "md:translate-y-4" : ""
               }`}
             >
-              {/* alt vide : le titre est déjà lu via la légende du bouton */}
+              {/* alt vide : le titre est déjà lu via la légende du bouton (évite la double lecture) */}
               <Image
                 src={`/realisations/${r.image}`}
                 alt=""
                 fill
-                sizes="(min-width: 1024px) 240px, 22vw"
+                sizes="(min-width: 1024px) 240px, (min-width: 768px) 22vw, (max-width: 400px) 70vw, 280px"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-chocolat/80 to-transparent p-3 pt-8 text-xs text-creme opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-chocolat/80 to-transparent p-3 pt-8 text-left text-xs text-creme transition-opacity md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100">
                 {r.titre}
               </span>
             </button>

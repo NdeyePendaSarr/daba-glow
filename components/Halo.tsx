@@ -28,33 +28,28 @@ const CLASSES = {
 
 /**
  * Signature visuelle du site : le portrait dans son halo doré pulsant.
- * Affiche le portrait si demandé, sinon un médaillon terracotta.
  * Le fond dégradé apporte de la profondeur sans alourdir.
  */
 export default function Halo({
-  avecPortrait = false,
   compactMobile = false,
 }: {
-  avecPortrait?: boolean;
   /** Accueil : halo réduit sous 768 px (portrait entier dans le premier écran). */
   compactMobile?: boolean;
 }) {
   const c = CLASSES[compactMobile ? "compact" : "normal"];
   const tailles = compactMobile ? TAILLES_COMPACT : TAILLES;
-  if (avecPortrait) {
-    // Équivalent de « priority » : <link rel="preload"> dans le <head>, priorité haute.
-    // Justifié : sur l'accueil (compactMobile) comme sur À propos, le portrait est dans
-    // le premier écran à toutes les tailles mesurées (360, 412, 768, 1440 px).
-    // type="image/avif" : les rares navigateurs sans AVIF ignorent ce préchargement
-    // et prennent la source WebP de <picture>.
-    preload("/portrait/portrait-320.avif", {
-      as: "image",
-      type: "image/avif",
-      imageSrcSet: srcset("avif"),
-      imageSizes: tailles,
-      fetchPriority: "high",
-    });
-  }
+  // Équivalent de « priority » : <link rel="preload"> dans le <head>, priorité haute.
+  // Justifié : sur l'accueil (compactMobile) comme sur À propos, le portrait est dans
+  // le premier écran à toutes les tailles mesurées (360, 412, 768, 1440 px).
+  // type="image/avif" : les rares navigateurs sans AVIF ignorent ce préchargement
+  // et prennent la source WebP de <picture>.
+  preload("/portrait/portrait-320.avif", {
+    as: "image",
+    type: "image/avif",
+    imageSrcSet: srcset("avif"),
+    imageSizes: tailles,
+    fetchPriority: "high",
+  });
 
   // Taille : 288 px sur mobile (196 px en variante compacte), 320 px sur tablette (la colonne ne fait que 332 px
   // à 768 px), 384 px dès 1024 px. Évite tout défilement horizontal.
@@ -82,27 +77,21 @@ export default function Halo({
         <div className="absolute inset-0 animate-halo rounded-full border border-ambre/70" />
         <div className={`absolute ${c.anneauInterieur} animate-halo-late rounded-full border border-dore/80`} />
         <div className={`absolute ${c.photo} overflow-hidden rounded-full bg-terracotta shadow-lg`}>
-          {avecPortrait ? (
-            <picture>
-              <source type="image/avif" srcSet={srcset("avif")} sizes={tailles} />
-              <source type="image/webp" srcSet={srcset("webp")} sizes={tailles} />
-              {/* Image déjà optimisée : next/image ajouterait un passage par /_next/image. */}
-              <img
-                src="/portrait/portrait-320.webp"
-                alt=""
-                width={320}
-                height={320}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </picture>
-          ) : (
-            <div className="flex h-full w-full items-center justify-center">
-              <span className="font-display text-5xl italic text-cacao">D</span>
-            </div>
-          )}
+          <picture>
+            <source type="image/avif" srcSet={srcset("avif")} sizes={tailles} />
+            <source type="image/webp" srcSet={srcset("webp")} sizes={tailles} />
+            {/* Image déjà optimisée : next/image ajouterait un passage par /_next/image. */}
+            <img
+              src="/portrait/portrait-320.webp"
+              alt=""
+              width={320}
+              height={320}
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </picture>
         </div>
       </div>
     </div>

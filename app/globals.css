@@ -72,6 +72,21 @@ html { scroll-behavior: smooth; }
   }
 }
 
+/* Même apparition, à partir de 768 px seulement (galeries : défilement horizontal sur mobile). */
+@media (min-width: 768px) {
+  .reveal-md {
+    animation: glissement-entree 0.7s ease both;
+    animation-delay: var(--delai, 0ms);
+  }
+  @supports (animation-timeline: view()) {
+    .reveal-md {
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+      animation-delay: 0s;
+    }
+  }
+}
+
 /* Transition d'entrée entre les pages (app/template.tsx) : 220 ms, opacité et léger glissement.
    Opacité de départ partielle (jamais 0) et aucun état masqué dans le HTML : sans JavaScript,
    ou si l'animation ne se lance pas, le contenu est visible. fill-mode « backwards » : aucun
@@ -171,7 +186,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal { animation: none; }
+  .reveal, .reveal-md { animation: none; }
   .entree-page { animation: none; }
   .reflet-glow { animation: none; }
   .apparition, .apparition-fond, .apparition-zoom { animation: none; }

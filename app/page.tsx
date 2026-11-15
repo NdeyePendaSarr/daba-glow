@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Fragment } from "react";
 import { site, lienWhatsApp, lienTelephone } from "@/content/site.config";
 import { formatTelephone } from "@/lib/format";
 import { schemaBeautySalon } from "@/lib/donnees-structurees";
@@ -12,6 +13,7 @@ import GalerieApercu from "@/components/GalerieApercu";
 import Temoignages from "@/components/Temoignages";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { chiffres, atouts } from "@/content/atouts";
+import { heros } from "@/content/accueil";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
@@ -37,7 +39,7 @@ export default function Accueil() {
       <section className="mx-auto grid max-w-5xl items-center gap-0 px-5 py-5 md:grid-cols-2 md:gap-16 md:py-28">
         <Reveal className="text-center md:text-left">
           <p className="mt-2 text-[10px] uppercase tracking-[0.22em] text-cuivre md:mt-0 md:text-xs md:tracking-[0.3em]">
-            Au salon ou à domicile — Mbour
+            {heros.surTitre}
           </p>
           <h1 className="mt-1 md:mt-3">
             <span className="block font-display text-[52px] italic leading-none sm:text-7xl md:text-8xl">
@@ -55,11 +57,16 @@ export default function Accueil() {
 
           {/* Pastille de confiance */}
           <p className="mt-3 inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-encre/10 bg-blanc px-4 py-2 text-xs font-medium tracking-wide text-encre/80 md:mt-5">
-            <span>Diplômée</span>
-            <span className="text-ambre" aria-hidden="true">·</span>
-            <span>Salon &amp; domicile</span>
-            <span className="text-ambre" aria-hidden="true">·</span>
-            <span>Mbour</span>
+            {heros.pastille.map((element, i) => (
+              <Fragment key={element}>
+                {i > 0 && (
+                  <span className="text-ambre" aria-hidden="true">
+                    ·
+                  </span>
+                )}
+                <span>{element}</span>
+              </Fragment>
+            ))}
           </p>
 
           <div className="mt-4 flex flex-col gap-4 md:mt-8 md:flex-row md:flex-wrap">
@@ -89,7 +96,7 @@ export default function Accueil() {
           </p>
         </Reveal>
         <Reveal delai={150} className="order-first md:order-none">
-          <Halo avecPortrait compactMobile />
+          <Halo compactMobile />
         </Reveal>
       </section>
 
