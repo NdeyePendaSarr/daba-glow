@@ -12,6 +12,7 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:couverture": "vitest run --coverage",
     "test:e2e": "playwright test"
   },
   "dependencies": {
@@ -20,6 +21,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
     "@playwright/test": "1.65.0",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "~6.9.1",
@@ -27,11 +29,24 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/coverage-v8": "^5.0.5",
     "eslint": "^9",
     "eslint-config-next": "^16.4.6",
     "jsdom": "^29.1.1",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vitest": "^2.1.9"
+    "vite": "8.3.5",
+    "vitest": "^5.0.5"
+  },
+  "overrides": {
+    "rolldown": "1.2.16",
+    "@rolldown/pluginutils": "1.0.1",
+    "ast-v8-to-istanbul": "1.0.7",
+    "vite": {
+      "postcss": "8.5.32"
+    },
+    "@tailwindcss/postcss": {
+      "postcss": "8.5.25"
+    }
   }
 }
