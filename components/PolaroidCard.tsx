@@ -55,7 +55,7 @@ export default function PolaroidCard({
       <button
         type="button"
         data-lightbox={lightboxIndex}
-        className={`${rotation} block w-full bg-blanc p-2 pb-6 text-left shadow-lg transition-transform duration-300 hover:rotate-0 hover:scale-105`}
+        className={`${rotation} block w-full bg-blanc p-2 pb-6 text-left shadow-lg transition-transform duration-300 hover:rotate-0 hover:scale-105 active:scale-[0.98]`}
       >
         {content}
       </button>

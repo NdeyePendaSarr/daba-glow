@@ -106,6 +106,24 @@ html { scroll-behavior: smooth; }
   .reflet-glow { background: none; color: CanvasText; }
 }
 
+/* Apparition du menu mobile et de la visionneuse photo (éléments affichés par JavaScript
+   au clic : leur opacité de départ ne masque donc jamais un contenu chargé sans JavaScript). */
+@keyframes apparition {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes apparition-fond {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes apparition-zoom {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+.apparition { animation: apparition 180ms ease-out; }
+.apparition-fond { animation: apparition-fond 180ms ease-out; }
+.apparition-zoom { animation: apparition-zoom 200ms ease-out; }
+
 /* Micro-interactions des boutons : définies ICI uniquement.
    Ne pas ajouter de classes Tailwind transition-* / hover:translate-* / hover:shadow-*
    sur ces boutons (les couleurs restent dans le balisage).
@@ -156,4 +174,5 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   .reveal { animation: none; }
   .entree-page { animation: none; }
   .reflet-glow { animation: none; }
+  .apparition, .apparition-fond, .apparition-zoom { animation: none; }
 }

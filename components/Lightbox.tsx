@@ -45,7 +45,7 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
       data-fond="sombre"
       aria-modal="true"
       aria-label={item.titre}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-chocolat/95 p-4 backdrop-blur-sm"
+      className="apparition-fond fixed inset-0 z-50 flex items-center justify-center bg-chocolat/95 p-4 backdrop-blur-sm"
       onClick={onClose}
     >
       <button
@@ -85,7 +85,8 @@ export default function Lightbox({ items, index, onClose, onPrev, onNext }: Prop
       )}
 
       <div
-        className="relative flex max-h-[85vh] w-full max-w-3xl flex-col items-center"
+        // pas de key : le zoom ne joue qu'à l'ouverture, pas à chaque photo suivante
+        className="apparition-zoom relative flex max-h-[85vh] w-full max-w-3xl flex-col items-center"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative aspect-[4/5] w-full max-h-[75vh] overflow-hidden rounded-2xl bg-cacao shadow-2xl">
