@@ -77,7 +77,7 @@ export default function BarreNavigation() {
       </div>
 
       {ouvert && (
-        <nav aria-label="Navigation mobile" className="select-none border-t border-cacao px-5 pb-6 pt-2 md:hidden">
+        <nav aria-label="Navigation mobile" className="apparition select-none border-t border-cacao px-5 pb-6 pt-2 md:hidden">
           {liens.map((l) => (
             <Link
               key={l.href}

@@ -32,7 +32,7 @@ export default function GalerieApercu() {
             key={r.image}
             type="button"
             data-lightbox={i}
-            className="relative aspect-[4/5] w-[70vw] max-w-[280px] flex-shrink-0 snap-center overflow-hidden rounded-2xl"
+            className="relative aspect-[4/5] w-[70vw] max-w-[280px] flex-shrink-0 snap-center overflow-hidden rounded-2xl transition-transform duration-150 active:scale-[0.98]"
           >
             {/* alt vide : le titre est déjà lu via la légende du bouton (évite la double lecture) */}
             <Image
