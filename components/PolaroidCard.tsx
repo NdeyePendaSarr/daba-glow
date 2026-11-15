@@ -50,7 +50,8 @@ export default function PolaroidCard({
         )}
       </div>
       <Legende className="mt-2 block text-center text-xs text-encre">
-        {realisation.titre} · {realisation.date}
+        {realisation.titre}
+        {realisation.date && ` · ${realisation.date}`}
       </Legende>
     </>
   );
