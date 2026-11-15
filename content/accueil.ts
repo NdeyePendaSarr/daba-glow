@@ -8,3 +8,9 @@ export const heros = {
   /** Pastille de confiance sous l'accroche (éléments séparés par un point doré). */
   pastille: ["Diplômée", "Salon & domicile", "Mbour"],
 };
+
+/** Les trois prestations les plus demandées, mises en avant sur l'accueil (confirmé le 15/11/2026). */
+export const plusDemandees = {
+  surTitre: "Les plus demandées",
+  prestations: ["Maquillage jour", "Manucure classique", "Tresses"],
+};

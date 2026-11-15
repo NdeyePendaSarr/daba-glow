@@ -19,6 +19,7 @@ describe("JavaScript réduit au strict nécessaire", () => {
     expect(clients).toEqual([
       "AnimatedCounter.tsx", // comptage animé (amélioration progressive, valeur finale dans le HTML)
       "BarreNavigation.tsx", // menu mobile ouvert/fermé + lien actif
+      "DefilementPoints.tsx", // point actif des galeries mobiles (photos rendues par le serveur)
       "Lightbox.tsx", // visionneuse au clavier
       "OuvreLightbox.tsx", // ouverture de la visionneuse au clic
       "TikTokEmbed.tsx", // façade : charge la vidéo au clic

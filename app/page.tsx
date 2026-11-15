@@ -13,14 +13,15 @@ import GalerieApercu from "@/components/GalerieApercu";
 import Temoignages from "@/components/Temoignages";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import { chiffres, atouts } from "@/content/atouts";
-import { heros } from "@/content/accueil";
+import { heros, plusDemandees } from "@/content/accueil";
 
 export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default function Accueil() {
-  const apercu = prestations.filter((p) =>
-    ["Maquillage jour", "Nail art", "Tresses"].includes(p.nom)
-  );
+  // dans l'ordre de content/accueil.ts
+  const apercu = plusDemandees.prestations
+    .map((nom) => prestations.find((p) => p.nom === nom))
+    .filter((p): p is (typeof prestations)[number] => Boolean(p));
 
   return (
     <>
@@ -106,7 +107,7 @@ export default function Accueil() {
       <section className="bg-sable px-5 py-20 md:py-28">
         <div className="mx-auto max-w-5xl">
           <Reveal>
-            <p className="text-xs uppercase tracking-[0.3em] text-cuivre">Le menu beauté</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-cuivre">{plusDemandees.surTitre}</p>
             <h2 className="mt-2 font-display text-4xl italic">Prestations</h2>
           </Reveal>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 md:grid-cols-3">

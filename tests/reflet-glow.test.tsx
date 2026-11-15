@@ -18,10 +18,14 @@ describe("reflet doré sur « GLOW »", () => {
     expect(reflets[0].closest("h1")).not.toBeNull();
   });
 
-  it("ne joue qu'une seule fois (jamais en boucle), après un court délai", () => {
+  it("tourne en boucle : un passage de 1,6 s puis une pause, après un court délai", () => {
     const r = regle(".reflet-glow");
-    expect(r).toMatch(/animation:\s*reflet-glow\s+1\.6s\s+[^;]*\s0\.5s\s+1\s+backwards/);
-    expect(r).not.toMatch(/infinite/);
+    // cycle de 6,4 s, démarrage à 0,5 s, répété à l'infini
+    expect(r).toMatch(/animation:\s*reflet-glow\s+6\.4s\s+[^;]*\s0\.5s\s+infinite\s+backwards/);
+    // le passage occupe le premier quart du cycle (1,6 s), le reste est une pause
+    const images = css.match(/@keyframes reflet-glow\s*\{([\s\S]*?)\n\}/)![1];
+    expect(images).toMatch(/0%\s*\{\s*background-position:\s*100% 0;\s*\}/);
+    expect(images).toMatch(/25%, 100%\s*\{\s*background-position:\s*0 0;\s*\}/);
   });
 
   it("garde un éclat doré, jamais blanc, et l'ambre au repos", () => {

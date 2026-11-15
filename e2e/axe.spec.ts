@@ -17,6 +17,13 @@ for (const e of ecrans) {
     for (const chemin of pages) {
       test(`${chemin} : aucune violation`, async ({ page }) => {
         await page.goto(chemin);
+        // Le contenu apparaît en fondu (opacité 0,4 → 1 en 220 ms, `.entree-page`) : mesurer
+        // pendant ce fondu fait échouer les textes les plus pâles. On attend donc sa fin.
+        await page.waitForFunction(() =>
+          document
+            .getAnimations()
+            .every((a) => (a as CSSAnimation).animationName !== "entree-page" || a.playState === "finished")
+        );
         const resultat = await new AxeBuilder({ page })
           .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "best-practice"])
           .analyze();
