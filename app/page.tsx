@@ -40,7 +40,7 @@ export default function Accueil() {
             <span className="block font-display text-[52px] italic leading-none sm:text-7xl md:text-8xl">
               {site.nomCourt}
             </span>
-            <span className="mt-1 block text-xl font-medium tracking-[0.4em] text-ambre sm:text-3xl md:text-4xl md:tracking-[0.5em]">
+            <span className="reflet-glow mt-1 block text-xl font-medium tracking-[0.4em] text-ambre sm:text-3xl md:text-4xl md:tracking-[0.5em]">
               {site.suffixe}
             </span>
           </h1>
