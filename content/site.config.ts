@@ -20,6 +20,8 @@ export const site = {
   telephone: "221768850492",
   messageWhatsApp:
     "Bonjour Daba ! J'ai vu votre site et j'aimerais réserver une prestation.",
+  // Message pré-rempli du bouton « Réserver » de chaque carte ; {prestation} est remplacé par son nom.
+  messageWhatsAppPrestation: "Bonjour Daba ! J'ai vu votre site et j'aimerais réserver : {prestation}.",
 
   // Laisser instagram vide ("") pour masquer le lien tant que le compte n'existe pas
   instagram: "",
@@ -49,3 +51,9 @@ export const lienWhatsApp = `https://wa.me/${site.telephone}?text=${encodeURICom
 )}`;
 
 export const lienTelephone = `tel:+${site.telephone}`;
+
+/** Lien WhatsApp avec un message pré-rempli pour une prestation précise. */
+export function lienWhatsAppPour(prestation: string): string {
+  const message = site.messageWhatsAppPrestation.replace("{prestation}", prestation);
+  return `https://wa.me/${site.telephone}?text=${encodeURIComponent(message)}`;
+}

@@ -43,7 +43,7 @@ describe("tutoiement partout sur le site", () => {
         .split(/\r?\n/)
         .forEach((ligne, i) => {
           if (/^\s*(\/\/|\*|\/\*)/.test(ligne)) return; // commentaires
-          if (ligne.includes(site.messageWhatsApp)) return; // exception voulue
+          if (ligne.includes(site.messageWhatsApp) || ligne.includes(site.messageWhatsAppPrestation)) return; // exception voulue : c'est la cliente qui écrit à Daba
           expect(sansRdv(ligne), `${f}:${i + 1}`).not.toMatch(VOUVOIEMENT);
         });
     }
