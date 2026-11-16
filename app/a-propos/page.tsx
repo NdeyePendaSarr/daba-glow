@@ -29,8 +29,10 @@ export default function APropos() {
 
       <div className="mt-16 border-l border-encre/20 pl-8">
         {parcours.map((etape, i) => (
-          <Reveal key={etape.titre} delai={i * 100}>
-            <div className="relative pb-12 last:pb-0">
+          // L'espace du bas est sur l'enveloppe Reveal (sœur des autres étapes) : sur le div
+          // intérieur, enfant unique, `last:pb-0` s'appliquait à toutes les étapes.
+          <Reveal key={etape.titre} delai={i * 100} className="pb-12 last:pb-0">
+            <div className="relative">
               <span className="absolute -left-[37px] top-1.5 h-3 w-3 rounded-full bg-dore" aria-hidden="true" />
               <p className="text-xs uppercase tracking-[0.25em] text-cuivre">{etape.periode}</p>
               <h2 className="mt-1 font-display text-2xl italic">{etape.titre}</h2>
