@@ -5,7 +5,8 @@
 export const chiffres = [
   { valeur: "2 ans", label: "de formation professionnelle" },
   { valeur: "50+", label: "clientes accompagnées" },
-  { valeur: "100 %", label: "au salon ou à domicile" },
+  // délai de réponse confirmé le 16/11/2026 (remplace « 100 % au salon ou à domicile »)
+  { valeur: "< 1 h", label: "pour te répondre sur WhatsApp" },
   { valeur: "7j/7", label: "sur rendez-vous" },
 ];
 

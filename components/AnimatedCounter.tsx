@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Affiche un chiffre clé ("50+", "2 ans", "100 %", "7j/7").
+ * Affiche un chiffre clé ("50+", "2 ans", "< 1 h", "7j/7").
  *
  * Le HTML du serveur contient TOUJOURS la valeur finale : sans JavaScript, ou
  * avant qu'il ne tourne, la cliente voit le bon chiffre (jamais « 0 »).
@@ -32,6 +32,8 @@ export default function AnimatedCounter({
     if (r.top < window.innerHeight && r.bottom > 0) return;
 
     const cible = parseInt(match[0], 10);
+    // rien à compter (0 ou 1) : on garde la valeur finale (évite « < 0 h » pendant l'animation)
+    if (cible < 2) return;
     const prefixe = valeur.slice(0, match.index);
     const suffixe = valeur.slice((match.index ?? 0) + match[0].length);
     const afficher = (n: number) => {
