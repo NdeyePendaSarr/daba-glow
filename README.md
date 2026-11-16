@@ -37,7 +37,7 @@ accessibilité, SEO, design), puis de corrections livrées en 16 pull requests.
 | Mesure | Avant (audit, 12/11/2026) | Après (production, 16/11/2026) |
 |---|---|---|
 | Accessibilité (axe, 4 pages, mobile et desktop) | 113 éléments en violation | **0** |
-| PageSpeed Insights mobile, accueil | Lighthouse local : 60 à 67, LCP 3,7 s | **Performance 99 à 100, LCP médian 2,1 s** |
+| PageSpeed Insights mobile, accueil (3 mesures) | — | **Performance 99 à 100, LCP médian 2,1 s** |
 | Vulnérabilités des dépendances de production | 3 (1 critique, 2 hautes) | **0** |
 | En-têtes de sécurité HTTP | HSTS seul (fourni par Vercel) | **+ CSP**, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy |
 | Tests | 14 | **175** (Vitest) + **11** (Playwright) |
