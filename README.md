@@ -142,8 +142,14 @@ toucher au code, et réutiliser la même base pour un autre commerce.
 
 Pour un nouveau commerce :
 1. dupliquer le projet et remplacer le dossier `content/` ;
-2. ajuster les couleurs dans `app/globals.css` (`@theme`) et les polices dans `app/layout.tsx` ;
-3. lancer `npm test` : les tests de contenu signalent une image manquante ou un champ oublié.
+2. **remplacer toutes les images** (`public/`, `app/favicon.ico`, `screenshots/`) : elles ne sont pas réutilisables (voir Licence) ;
+3. ajuster les couleurs dans `app/globals.css` (`@theme`) et les polices dans `app/layout.tsx` ;
+4. lancer `npm test` : les tests de contenu signalent une image manquante ou un champ oublié.
+
+## 📄 Licence
+
+- **Code source** : licence [MIT](LICENSE) : il peut être réutilisé, modifié et redistribué.
+- **Images et identité « Daba Glow »** : **tous droits réservés**. Cela couvre les photos, le portrait, les icônes, le logo, les captures d'écran et le nom. Ces images montrent Daba et ses clientes, qui ont donné leur accord pour le site de Daba Glow uniquement : elles ne peuvent pas être réutilisées. La liste exacte des fichiers est dans [LICENSE](LICENSE).
 
 ---
 
