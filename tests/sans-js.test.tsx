@@ -37,7 +37,8 @@ describe("contenu visible sans JavaScript (HTML du serveur)", () => {
 
   it("les chiffres clés sont rendus à leur vraie valeur, jamais à « 0 »", () => {
     const html = renderToString(<Accueil />);
-    for (const c of chiffres) expect(html).toContain(`>${c.valeur}<`);
+    // « < » est échappé dans le HTML (« < 1 h » → « &lt; 1 h »)
+    for (const c of chiffres) expect(html).toContain(`>${c.valeur.replace(/</g, "&lt;")}<`);
     expect(html).not.toMatch(/>0 ans<|>0\+<|>0 %<|>0j\/7</);
   });
 

@@ -54,7 +54,7 @@ export default function Contact() {
               {telAffiche}
             </a>
             <p className="mt-2 text-xs leading-relaxed text-encre/75">
-              Réponse en général sous 2 h pendant les horaires d&apos;ouverture.
+              Réponse en général en moins d&apos;1 h pendant les horaires d&apos;ouverture.
             </p>
           </div>
 
