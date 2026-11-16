@@ -1,0 +1,59 @@
+MIT License (code source uniquement)
+
+Copyright (c) 2026 Ndeye Penda SARR
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------------
+
+EXCLUSIONS : IMAGES ET IDENTITÉ « DABA GLOW » (tous droits réservés)
+
+La licence MIT ci-dessus couvre uniquement le code source. Elle ne couvre PAS
+les fichiers suivants, qui ne sont pas inclus dans le « Software » :
+
+- toutes les photos et images du dossier `public/` : `public/portrait.jpg`,
+  `public/portrait/`, `public/prestations/`, `public/realisations/`,
+  `public/og-image.jpg` ;
+- les icônes et le logo : `public/icon-512.png`, `public/icon-192.png`,
+  `public/apple-icon.png`, `public/favicon-32.png`, `app/favicon.ico` ;
+- les captures d'écran du dossier `screenshots/` ;
+- le nom « Daba Glow ».
+
+Ces images montrent Daba et ses clientes, qui ont donné leur accord pour leur
+utilisation sur le site de Daba Glow uniquement. Tous droits réservés : elles ne
+peuvent être ni copiées, ni réutilisées, ni modifiées, ni redistribuées, quel
+qu'en soit l'usage, sans l'autorisation écrite de Daba et des personnes
+photographiées.
+
+Pour réutiliser ce projet comme template : remplacer toutes les images citées
+ci-dessus, ainsi que le contenu du dossier `content/`, par d'autres.
+
+--------------------------------------------------------------------------------
+
+EXCLUSIONS: IMAGES AND "DABA GLOW" IDENTITY (all rights reserved)
+
+The MIT License above applies to the source code only. All photos and images
+(`public/portrait.jpg`, `public/portrait/`, `public/prestations/`,
+`public/realisations/`, `public/og-image.jpg`), icons and logo
+(`public/icon-512.png`, `public/icon-192.png`, `public/apple-icon.png`,
+`public/favicon-32.png`, `app/favicon.ico`), the screenshots in `screenshots/`
+and the "Daba Glow" name are NOT part of the Software. They depict real people
+who consented to their use on the Daba Glow website only. All rights reserved:
+no copying, reuse, modification or redistribution for any purpose without
+written permission from Daba and the people depicted.
