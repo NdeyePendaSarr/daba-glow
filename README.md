@@ -32,7 +32,7 @@ une photo entière par écran dans les galeries, un menu simple.
 ## 📊 Résultats mesurés
 
 Le site a fait l'objet d'un audit complet (code, sécurité, performance,
-accessibilité, SEO, design), puis de corrections livrées en 16 pull requests.
+accessibilité, SEO, design), puis de corrections livrées en 19 pull requests.
 
 | Mesure | Avant (audit, 12/11/2026) | Après (production, 16/11/2026) |
 |---|---|---|
@@ -40,7 +40,7 @@ accessibilité, SEO, design), puis de corrections livrées en 16 pull requests.
 | PageSpeed Insights mobile, accueil (3 mesures) | — | **Performance 99 à 100, LCP médian 2,1 s** |
 | Vulnérabilités des dépendances de production | 3 (1 critique, 2 hautes) | **0** |
 | En-têtes de sécurité HTTP | HSTS seul (fourni par Vercel) | **+ CSP**, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy |
-| Tests | 14 | **175** (Vitest) + **11** (Playwright) |
+| Tests | 14 | **177** (Vitest) + **11** (Playwright) |
 | Couverture des lignes | 14 % | **92 %** |
 
 ## 🧱 Stack technique
@@ -59,7 +59,7 @@ accessibilité, SEO, design), puis de corrections livrées en 16 pull requests.
 ## 🧭 Démarche
 
 1. **Audit** : 30 constats classés par gravité, chacun avec sa preuve (fichier et ligne, commande et sortie, capture ou mesure).
-2. **Corrections par lots** (16 pull requests), toujours dans le même ordre :
+2. **Corrections par lots** (19 pull requests), toujours dans le même ordre :
    - branche dédiée ;
    - maquettes avant tout changement visuel ;
    - diff relu et validé, un commit par sujet ;
